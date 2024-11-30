@@ -1,19 +1,16 @@
+
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import { Link } from "react-router-dom"; // Import Link for navigation to login page
+import { useNavigate, Link } from "react-router-dom"; // Import useNavigate dan Link
 import "./Registration.css"; // Assuming your CSS styles are here
 import logo from './grow.jpg'; // Logo image
 
 function Registration() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
   });
 
-  const [error, setError] = useState(""); // To show error messages if form submission fails
   const navigate = useNavigate(); // Initialize useNavigate for navigation
 
   const handleChange = (e) => {
@@ -29,86 +26,76 @@ function Registration() {
 
     // Validate that the password and confirm password match
     if (formData.password !== formData.confirmPassword) {
-      setError("Password and Confirm Password do not match.");
+      alert("Konfirmasi password tidak sesuai!");
       return;
     }
 
-    // Handle form submission (e.g., saving data or calling an API)
-    console.log("Registration successful with data:", formData);
-    
-    // After successful registration, clear the error message and navigate to home
-    setError(""); // Clear error message if validation is successful
-    navigate("/home"); // Navigate to the home page
+    // Save user data to localStorage
+    const { email, password } = formData;
+    localStorage.setItem("userData", JSON.stringify({ email, password }));
+
+    console.log("Registration successful with data:", { email, password });
+
+    // Navigate to the login page
+    alert("Registrasi berhasil! Silakan login.");
+    navigate("/login"); // Redirect to login page
   };
 
   return (
     <div className="form-container">
       <h2>Registrasi</h2>
       <img src={logo} alt="Logo" className="logo" /> {/* Logo Image */}
-      
-      {/* Show error message if validation fails */}
-      {error && <p className="error-message">{error}</p>}
 
-      <form onSubmit={handleSubmit} className="form-grid">
-        <div>
-          <input
-            type="text"
-            name="firstName"
-            placeholder="First name"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            name="lastName"
-            placeholder="Last name"
-            value={formData.lastName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-grid-full">
+      <form onSubmit={handleSubmit}>
+        {/* Email Input */}
+        <div className="input-container floating-label">
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            id="email"
+            placeholder=" "
             value={formData.email}
             onChange={handleChange}
             required
           />
+          <label htmlFor="email">Email</label>
         </div>
-        <div>
+
+        {/* Password Input */}
+        <div className="input-container floating-label">
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            id="password"
+            placeholder=" "
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <label htmlFor="password">Password</label>
         </div>
-        <div>
+
+        {/* Confirm Password Input */}
+        <div className="input-container floating-label">
           <input
             type="password"
             name="confirmPassword"
-            placeholder="Confirm Password"
+            id="confirmPassword"
+            placeholder=" "
             value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
+          <label htmlFor="confirmPassword">Konfirmasi Password</label>
         </div>
 
-        <div className="form-grid-full">
-          <button type="submit">Register</button>
-        </div>
-
-        <div className="form-grid-full" style={{ textAlign: "center", marginTop: "10px" }}>
-          <Link to="/login">Already have an account? Login here</Link> {/* Link to login page */}
-        </div>
+        <button type="submit">Regiister</button>
       </form>
+
+      {/* Tambahkan link ke halaman login */}
+      <p className="login-link">
+        Sudah punya akun? <Link to="/login">Klik Login</Link>
+      </p>
     </div>
   );
 }

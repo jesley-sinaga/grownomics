@@ -1,6 +1,6 @@
-/* Registration Form Container */
 .form-container {
-  max-width: 400px;
+  max-width: 900px;
+  width: 320px;
   margin: auto;
   padding: 20px;
   background: linear-gradient(#f4e1c1, #d1a36f);
@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 49px;
 }
 
 /* Heading Style */
@@ -21,33 +21,48 @@
   margin-bottom: 20px;
 }
 
-/* Grid Layout for the Form Inputs */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 20px;
-}
-
-/* Full-width Fields */
-.form-grid-full {
-  grid-column: span 2;
-}
-
-/* Input Styles */
-.form-container input[type="text"],
-.form-container input[type="email"],
-.form-container input[type="password"],
-.form-container input[type="number"],
-.form-container input[type="date"],
-.form-container input[type="file"],
-.form-container textarea {
+/* Floating Label Container */
+.floating-label {
+  position: relative;
+  margin-bottom: 22px;
   width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #a68346;
+}
+
+.floating-label input {
+  width: 100%;
+  padding: 10px 10px 10px 5px;
+  border: 1px solid #6b532e;
   border-radius: 5px;
-  font-size: 1em;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-label input:focus {
+  border-color: #71562d;
+  box-shadow: 0 0 5px rgba(166, 225, 241, 0.7);
+}
+
+.floating-label label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  color: #755c32;
+  background: #f4e1c1; /* Warna background untuk menyesuaikan */
+  padding: 0 5px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+/* Saat input aktif atau terisi */
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: -10px; /* Naik ke atas input */
+  left: 5px;
+  font-size: 12px;
+  color: #71562d; /* Warna label saat fokus */
 }
 
 /* Button Style */
@@ -67,24 +82,25 @@
   background-color: #d1a052;
 }
 
-/* Logo Container */
-.login-logo-container {
-  margin-bottom: 20px; /* Add some space between the logo and the form */
-}
-
-/* Logo Styles */
+/* Logo */
 .logo {
-  width: 80px; /* Adjust the size of the logo */
+  width: 80px;
   height: 80px;
-  margin: 0 auto; /* Center the logo horizontally */
+  margin-bottom: 20px;
 }
 
 /* Link Style */
-.form-container a {
+.login-link {
+  margin-top: 20px;
   text-align: center;
-  display: block;
-  color: #755c32;
-  margin-top: 10px;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #007bff;
   text-decoration: none;
-  font-size: 0.9em;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
 }

@@ -1,135 +1,118 @@
-/* Main container for login form */
 .login-container {
-    width: 350px;
-    margin: auto;
-    padding: 30px;
-    border-radius: 15px;
-    background: linear-gradient(#f4e1c1, #d1a36f);
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  width: 350px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 15px;
+  background: linear-gradient(#f4e1c1, #d1a36f);
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Gaya heading */
+.login-container h2 {
+  color: #e8c399;
+  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+/* Logo styling */
+.login-logo {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 20px;
+}
+
+/* Styling untuk container input dengan floating label */
+.floating-label {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.floating-label input {
+  width: 100%;
+  padding: 10px 10px 10px 5px;
+  border: 1px solid #6b532e;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-label input:focus {
+  border-color: #71562d;
+  box-shadow: 0 0 5px rgba(166, 225, 241, 0.7);
+}
+
+.floating-label label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 14px;
+  color: #755c32;
+  background: #f4e1c1; /* Warna background untuk menyesuaikan */
+  padding: 0 5px;
+  transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+/* Saat input aktif atau terisi */
+.floating-label input:focus + label,
+.floating-label input:not(:placeholder-shown) + label {
+  top: -10px; /* Naik ke atas input */
+  left: 5px;
+  font-size: 12px;
+  color: #71562d; /* Warna label saat fokus */
+}
+
+/* Gaya tombol login */
+.login-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #a08051;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #d1a052;
+}
+
+/* Gaya untuk link register */
+.register-container p {
+  color: #755c32;
+  font-size: 12px;
+}
+
+.register-container p:hover {
+  color: #a08051;
+  transform: scale(1.1);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90%;
+    padding: 20px;
   }
-  
-  /* Heading style */
+
   .login-container h2 {
-    color: #e8c399;
-    margin-bottom: 20px;
-    font-size: 50px;
-    font-weight: 600;
+    font-size: 36px;
   }
-  
-  /* Logo container */
-  .login-logo-container {
-    margin-bottom: 20px;  /* Space between logo and form */
-  }
-  
-  /* Logo image styling */
-  .login-logo {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto;
-  }
-  
-  /* Input container for text fields */
-  .input-container {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  /* Label for inputs */
-  label {
-    display: block;
-    color: #755c32;
-    font-size: 14px;
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
-  
-  /* Style for username and password inputs */
-  input[type="text"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #6b532e;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  /* Focus effect for input fields */
-  input[type="text"]:focus,
-  input[type="password"]:focus {
-    outline: none;
-    border-color: #71562d;
-    box-shadow: 0 0 5px rgba(166, 225, 241, 0.7);
-  }
-  
-  /* Button styles for Login and Register */
-  .register-button,
+
   .login-button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Register button styling */
-  .login-button {
-    background-color: #a08051;
-    color: #fff;
-  }
-  
-  /* Hover effect for buttons */
-  .register-button:hover,
-  .login-button:hover {
-    background-color: #d1a052;
-  }
-  
-  /* Links for Register and Login page */
-  .lolz a {
-    color: #755c32;
-    text-decoration: none;
     font-size: 14px;
-    transition: color 0.3s ease, transform 0.3s ease;
   }
-  
-  .lolz a:hover {
-    color: #a08051;
-    transform: scale(1.1);
-  }
-  
-  /* Add responsiveness for smaller screens */
-  @media (max-width: 480px) {
-    .login-container {
-      width: 90%;
-      padding: 20px;
-      margin-top: 50px;
-    }
-  
-    .login-container h2 {
-      font-size: 36px;
-    }
-  
-    .input-container {
-      margin-bottom: 15px;
-    }
-  
-    .login-button,
-    .register-button {
-      font-size: 14px;
-    }
-  }
-  .register-container p{
-    
-    padding: 9px;
-  }
-  
+}

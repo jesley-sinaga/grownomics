@@ -1,116 +1,163 @@
-.quiz-container {
-  width: 100%;
-  min-height: 100vh; /* Pastikan penuh pada layar */
-  margin: 0; /* Hilangkan margin */
-  background: #fff; /* Warna latar belakang */
-  padding: 20px; /* Padding yang lebih proporsional */
-  border-radius: 10px; /* Tambahkan radius untuk estetika */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
-  font-family: 'Poppins', sans-serif;
-  display: flex; /* Mengatur tata letak secara fleksibel */
-  flex-direction: column; /* Susunan vertikal */
-  justify-content: flex-start; /* Konten mulai dari atas */
-  align-items: center; /* Pusatkan konten secara horizontal */
-  gap: 0px; /* Jarak antar elemen */
-  
-}
-
-.quiz-header {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.quiz-header h1 {
-  font-size: 36px;
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
-
-.quiz-intro {
-  font-size: 18px;
-  color: #7f8c8d;
-}
-
-/* Progress bar */
-.progress-bar-container {
-  height: 10px;
-  width: 100%;
-  max-width: 600px;
-  background-color: #f1f1f1;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.progress-bar {
-  height: 100%;
-  width: 50%; /* Contoh persentase progres */
-  background-color: #3498db;
-  border-radius: 5px;
-}
-
-/* Kotak untuk setiap pertanyaan */
-.quiz-question {
-  width: 100%;
-  max-width: 600px;
-  background-color: #f9f9f9; /* Warna kotak */
-  border: 2px solid #ccc; /* Border kotak */
-  border-radius: 10px; /* Rounded corners */
+/* Container utama kuis */
+.kuis-container {
+  font-family: Arial, sans-serif;
   padding: 20px;
+  background-color: #f8f4e1; /* Warna latar belakang coklat muda */
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 300px; 
+}
+
+/* Pilihan Kuis */
+.pilihan-kuis {
+  text-align: center;
+}
+
+.pilihan-kuis h2 {
+  color: #5a3e36; /* Warna teks coklat gelap */
+  font-size: 24px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Bayangan */
 }
 
-.quiz-question h2 {
-  font-size: 20px;
-  color: #34495e;
-  margin-bottom: 10px;
-}
-
-.quiz-hint {
-  font-style: italic;
-  color: #7f8c8d;
-  margin-bottom: 10px;
-}
-
-/* Input untuk jawaban */
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-  border-color: #3498db;
-  outline: none;
-}
-
-/* Tombol submit */
-.quiz-submit button {
-  width: 100%;
-  max-width: 600px;
-  padding: 12px;
-  background-color: #2980b9;
-  color: white;
-  border: none;
-  border-radius: 8px;
+.pilihan-kuis-button {
+  background-color: #d9c4b5; /* Coklat muda */
+  color: #5a3e36; /* Coklat gelap */
   font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
-.quiz-submit button:hover {
-  background-color: #3498db;
+.pilihan-kuis-button:hover {
+  background-color: #c8b299; /* Sedikit lebih gelap saat hover */
 }
 
-/* Feedback */
-.quiz-feedback h3 {
-  font-size: 18px;
-  font-weight: 600;
+/* Animasi Mulai */
+.animasi-mulai {
   text-align: center;
-  color: #2ecc71;
+  background-color: #d9c4b5;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  color: #5a3e36;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Soal dan Timer */
+.pertanyaan-container {
   margin-top: 30px;
+}
+
+.soal {
+  background-color: #d9c4b5;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.soal h3 {
+  color: #5a3e36;
+  font-size: 22px;
+}
+
+.timer {
+  color: #5a3e36;
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.pilihan {
+  margin-top: 20px;
+}
+
+.pilihan-button {
+  background-color: #e4d2b7; /* Coklat muda */
+  color: #5a3e36; /* Coklat gelap */
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pilihan-button:hover {
+  background-color: #9a8368; /* Sedikit lebih gelap saat hover */
+}
+
+.selected {
+  background-color: #c8b299; /* Coklat sedikit lebih gelap jika dipilih */
+}
+
+/* Tombol Submit */
+.submit-button {
+  background-color: #d9c4b5;
+  color: #5a3e36;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #c8b299;
+}
+
+/* Hasil Kuis */
+.hasil {
+  text-align: center;
+  background-color: #d9c4b5;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.hasil h3 {
+  color: #5a3e36;
+  font-size: 26px;
+}
+
+.kembali-button {
+  background-color: #d9c4b5;
+  color: #5a3e37;
+  font-size: 20px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.kembali-button:hover {
+  background-color: #c8b299;
+}
+
+/* Animasi Jika Benar Semua */
+.animasi-benar {
+  text-align: center;
+  background-color: #d9c4b5;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 24px;
+  color: #5a3e36;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Animasi FadeIn */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

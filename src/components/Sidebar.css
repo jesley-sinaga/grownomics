@@ -1,15 +1,14 @@
 .sidebar {
   width: 250px;
-  background-color: #365575;
+  height: 100vh;
+  background-color: #2c3e50;
   color: white;
-  position: fixed; /* Sidebar tetap pada posisi */
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh; /* Tinggi penuh */
-  overflow-y: auto; /* Tambahkan scroll jika konten lebih panjang */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+<<<<<<< HEAD
   justify-content: flex-start; /* Konten mulai dari atas */
 }
 
@@ -39,22 +38,23 @@
   color: white;
   text-decoration: none;
   display: flex;
+=======
+>>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
   align-items: center;
-  gap: 10px;
-  font-size: 16px;
+  transition: width 0.3s ease-in-out;
 }
 
-.sidebar ul li a:hover {
-  background-color: #bea477;
-  border-radius: 5px;
+.sidebar.closed {
+  width: 80px;
 }
 
-.sidebar ul li a i {
-  font-size: 18px;
-}
+/* Ukuran logo saat sidebar terbuka */
 .logo-container {
+  width: 100%; /* Menyesuaikan lebar kontainer dengan sidebar */
   display: flex;
+  justify-content: center;
   align-items: center;
+<<<<<<< HEAD
   margin-bottom: 2px;
   width: 50px;
 }
@@ -63,4 +63,83 @@
   width: 10px; /* Atur ukuran logo */
   height: 20px;
   margin-right: 10px;
+=======
+  padding: 13px;
+  transition: all 0.3s ease; /* Animasi transisi */
+}
+
+.logo {
+  width: 69x; /* Ukuran logo besar */
+  height: 90px;
+  transition: all 0.3s ease; /* Animasi transisi ukuran logo */
+}
+
+/* Ukuran logo saat sidebar ditutup */
+.sidebar.closed .logo-container {
+  padding: 5px;
+  margin-top: 60px; /* Kurangi padding untuk tampilan lebih kecil */
+}
+
+.sidebar.closed .logo {
+  width: 40px; /* Ukuran logo kecil */
+  height: 50px;
+}
+
+/* Tombol Toggle */
+.toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: 0px; /* Geser tombol toggle sedikit ke kiri */
+  background-color: #bf955d;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 9px;
+  border-radius: 50%;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-bottom: 40px;
+  margin-right: 20px;
+}
+
+.toggle-btn:hover {
+  background-color: #ebc899;
+}
+
+/* Menu */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  width: 100%;
+  text-align: left;
+}
+
+.sidebar-menu li {
+  width: 100%;
+}
+
+.sidebar-menu a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  padding: 15px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-menu a:hover {
+  background-color: #1abc9c;
+  color: white;
+}
+
+/* Sembunyikan teks menu saat sidebar ditutup */
+.sidebar.closed .sidebar-menu a {
+  text-align: center;
+  padding: 15px 0;
+}
+.sidebar.closed .sidebar-menu a {
+  text-align: center;
+  padding: 15px 0;
+>>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
 }
