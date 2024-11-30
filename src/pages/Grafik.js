@@ -246,3 +246,4 @@ export default Kuis;
 export default Grafik;
 
 >>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
+
