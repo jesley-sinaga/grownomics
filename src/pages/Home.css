@@ -89,3 +89,87 @@
     width: 80%; /* Memperlebar input untuk layar kecil */
   }
 }
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kotak Fitur */
+.featureBox {
+  background: linear-gradient(135deg, #f4e1c1, #d7b38a); /* Gradien warna */
+  color: #4e3629; /* Warna teks */
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featureBox h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.featureBox:hover {
+  transform: scale(1.1); /* Membesarkan ukuran kotak */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan saat hover */
+}
+
+/* Responsif untuk Grid */
+@media (max-width: 768px) {
+  .featureGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+  .featureBox {
+    padding: 20px;
+  }
+}
+.contentTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: #4e3629; /* Warna teks */
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: uppercase; /* Huruf kapital */
+}
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Kotak Fitur */
+.featureBox {
+  text-align: center;
+  padding: 20px;
+  
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featureBox img {
+  width: 100px; /* Ukuran gambar */
+  height: 100px; /* Ukuran gambar */
+  margin-bottom: 10px; /* Jarak antara gambar dan teks */
+}
+
+.featureBox h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4e3629;
+  text-transform: capitalize; /* Awal huruf kapital */
+}
+
+.featureBox:hover {
+  transform: scale(1.0); /* Membesarkan elemen kotak */
+}

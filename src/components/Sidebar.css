@@ -16,7 +16,7 @@
 .sidebar h2 {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(to right, #f4e1c1, #d1a36f);
+ 
   color: white;
   margin: 0;
   font-size: 20px;
@@ -55,11 +55,12 @@
 .logo-container {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
+  width: 50px;
 }
 
 .logo {
-  width: 40px; /* Atur ukuran logo */
-  height: 40px;
+  width: 10px; /* Atur ukuran logo */
+  height: 20px;
   margin-right: 10px;
 }
