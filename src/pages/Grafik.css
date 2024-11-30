@@ -1,0 +1,67 @@
+
+.grafik-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9; /* Warna latar belakang */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+    border-radius: 10px; /* Membulatkan tepi */
+    border: 1px solid #ddd; /* Garis batas */
+    margin-left: 280px;
+    
+  }
+  
+  /* Judul grafik */
+  .grafik-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 19px;
+    font-size: 19px;
+    font-weight: bold;
+  }
+  
+  /* Input dan tombol */
+  .input-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .input-container input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Garis batas */
+    width: 200px;
+  }
+  
+  .input-container button {
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Warna hijau */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .input-container button:hover {
+    background-color: #45a049; /* Warna hijau lebih gelap */
+  }
+  
+  /* Responsif untuk layar kecil */
+  @media (max-width: 768px) {
+    .grafik-container {
+      padding: 15px;
+    }
+  
+    .input-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .input-container input,
+    .input-container button {
+      width: 100%; /* Input dan tombol memenuhi lebar layar */
+    }
+  }

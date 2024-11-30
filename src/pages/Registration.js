@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import useNavigate dan Link
 import "./Registration.css"; // Assuming your CSS styles are here
@@ -45,41 +46,50 @@ function Registration() {
       <h2>Registrasi</h2>
       <img src={logo} alt="Logo" className="logo" /> {/* Logo Image */}
 
-      <form onSubmit={handleSubmit} className="form-grid">
-        <div className="form-grid-full">
+      <form onSubmit={handleSubmit}>
+        {/* Email Input */}
+        <div className="input-container floating-label">
           <input
             type="email"
             name="email"
-            placeholder="Email"
+            id="email"
+            placeholder=" "
             value={formData.email}
             onChange={handleChange}
             required
           />
+          <label htmlFor="email">Email</label>
         </div>
-        <div>
+
+        {/* Password Input */}
+        <div className="input-container floating-label">
           <input
             type="password"
             name="password"
-            placeholder="Password"
+            id="password"
+            placeholder=" "
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <label htmlFor="password">Password</label>
         </div>
-        <div>
+
+        {/* Confirm Password Input */}
+        <div className="input-container floating-label">
           <input
             type="password"
             name="confirmPassword"
-            placeholder="Konfirmasi Password"
+            id="confirmPassword"
+            placeholder=" "
             value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
+          <label htmlFor="confirmPassword">Konfirmasi Password</label>
         </div>
 
-        <div className="form-grid-full">
-          <button type="submit">Register</button>
-        </div>
+        <button type="submit">Regiister</button>
       </form>
 
       {/* Tambahkan link ke halaman login */}

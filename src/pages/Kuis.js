@@ -1,144 +1,139 @@
-import React, { useState } from 'react';
-import './Kuis.css';
+import React, { useState, useEffect } from "react";
+import "./Kuis.css";
 
 const Kuis = () => {
-  const [jawaban, setJawaban] = useState({
-    soal1: '',
-    soal2: '',
-    soal3: '',
-    soal4: '',
-    soal5: '',
-    soal6: '',
-    soal7: '',
-  });
+  const pertanyaanPerKuis = [
+    {
+      kuis: "Kuis 1",
+      soal: [
+        { id: 1, soal: "Siapa penemu listrik?", pilihan: ["Nikola Tesla", "Thomas Edison", "Albert Einstein", "Alexander Graham Bell"], jawabanBenar: "Nikola Tesla" },
+        { id: 2, soal: "Apa tahun Proklamasi Kemerdekaan Indonesia?", pilihan: ["1945", "1939", "1950", "1920"], jawabanBenar: "1945" },
+        { id: 3, soal: "Di mana terjadinya Perang Dunia II?", pilihan: ["Eropa", "Asia", "Afrika", "Australia"], jawabanBenar: "Eropa" },
+        { id: 4, soal: "Siapa Presiden pertama Indonesia?", pilihan: ["Soekarno", "Soeharto", "Joko Widodo", "B.J. Habibie"], jawabanBenar: "Soekarno" },
+      ],
+    },
+    {
+      kuis: "Kuis 2",
+      soal: [
+        { id: 1, soal: "Apa nama unsur dengan simbol H?", pilihan: ["Hidrogen", "Helium", "Oksigen", "Nitrogen"], jawabanBenar: "Hidrogen" },
+        { id: 2, soal: "Apa warna darah manusia?", pilihan: ["Merah", "Biru", "Hijau", "Kuning"], jawabanBenar: "Merah" },
+        { id: 3, soal: "Apa nama planet terdekat dengan Matahari?", pilihan: ["Merkurius", "Venus", "Bumi", "Mars"], jawabanBenar: "Merkurius" },
+      ],
+    },
+  ];
 
-  const [feedback, setFeedback] = useState('');
-  const [progress, setProgress] = useState(0);
+  const [jawabanTerpilih, setJawabanTerpilih] = useState({});
+  const [skor, setSkor] = useState(0);
+  const [kuisAktif, setKuisAktif] = useState(null);
+  const [babAktif, setBabAktif] = useState(0);
+  const [timer, setTimer] = useState(20);
+  const [isKuisSelesai, setIsKuisSelesai] = useState(false);
 
-  const options = {
-    soal1: ['Deflasi', 'Inflasi', 'Resesi', 'Stagflasi'],
-    soal2: ['Demand', 'Supply', 'Kredit', 'Investasi'],
-    soal3: ['Permintaan', 'Penawaran', 'Konsumsi', 'Produksi'],
-    soal4: ['PDB', 'Pendapatan Per Kapita', 'Neraca Dagang', 'Inflasi'],
-    soal5: ['Sumber Daya Alam', 'Tenaga Kerja', 'Modal', 'Pajak'],
-    soal6: ['Pendidikan', 'Perbankan', 'Teknologi', 'Transportasi'],
-    soal7: ['Ekspor', 'Impor', 'Investasi', 'Konsumsi'],
+  const pilihJawaban = (id, pilihan) => {
+    setJawabanTerpilih((prev) => ({
+      ...prev,
+      [id]: pilihan,
+    }));
   };
 
-  const correctAnswers = {
-    soal1: 'Inflasi',
-    soal2: 'Demand',
-    soal3: 'Penawaran',
-    soal4: 'PDB',
-    soal5: 'Sumber Daya Alam',
-    soal6: 'Perbankan',
-    soal7: 'Ekspor',
-  };
-
-  const handleChange = (soal, value) => {
-    setJawaban({ ...jawaban, [soal]: value });
-    updateProgress();
-  };
-
-  const updateProgress = () => {
-    const answeredCount = Object.values(jawaban).filter((jawab) => jawab !== '').length;
-    setProgress((answeredCount / 7) * 100);
-  };
-
-  const handleSubmit = () => {
-    let correctCount = 0;
-
-    Object.keys(jawaban).forEach((soal) => {
-      if (jawaban[soal] === correctAnswers[soal]) {
-        correctCount++;
+  const hitungSkor = () => {
+    let skorBaru = 0;
+    pertanyaanPerKuis[kuisAktif].soal.forEach((q) => {
+      if (jawabanTerpilih[q.id] === q.jawabanBenar) {
+        skorBaru++;
       }
     });
-
-    setFeedback(`Anda menjawab dengan benar ${correctCount} dari 7 soal.`);
+    setSkor(skorBaru);
+    setIsKuisSelesai(true);
   };
 
-  // Function to reset the answer of a specific question
-  const clearAnswer = (soal) => {
-    setJawaban({ ...jawaban, [soal]: '' });
+  const mulaiKuis = (index) => {
+    setKuisAktif(index);
+    setJawabanTerpilih({});
+    setBabAktif(0);
+    setTimer(20);
+    setIsKuisSelesai(false);
   };
+
+  const lanjutKeSoalBerikutnya = () => {
+    if (babAktif < pertanyaanPerKuis[kuisAktif].soal.length - 1) {
+      setBabAktif(babAktif + 1);
+      setTimer(20);
+    } else {
+      hitungSkor();
+    }
+  };
+
+  useEffect(() => {
+    if (timer > 0 && !isKuisSelesai) {
+      const interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+      return () => clearInterval(interval);
+    } else if (timer === 0) {
+      lanjutKeSoalBerikutnya();
+    }
+  }, [timer, isKuisSelesai]);
 
   return (
-    <div className="quiz-container">
-      <header className="quiz-header">
-        <h1>Kuis Ekonomi Kelas 11</h1>
-        <p>Uji pemahaman Anda tentang konsep dasar Ekonomi dengan memilih jawaban yang tepat!</p>
-      </header>
-
-      {/* Progress Bar */}
-      <div className="progress-bar-container">
-        <div
-          className="progress-bar"
-          style={{
-            width: `${progress}%`,
-            transition: 'width 0.3s ease-in-out',
-            backgroundColor: progress === 100 ? '#4caf50' : '#2196f3',
-          }}
-        />
-      </div>
-
-      {/* Soal */}
-      {Object.keys(options).map((soal, index) => (
-        <div className="quiz-question" key={soal}>
-          <h2>{index + 1}. {getQuestionText(soal)}</h2>
-          <div className="quiz-options">
-            {options[soal].map((option) => (
-              <label
-                key={option}
-                className={`quiz-option ${jawaban[soal] === option ? 'selected' : ''}`}
-              >
-                <input
-                  type="radio"
-                  name={soal}
-                  value={option}
-                  checked={jawaban[soal] === option}
-                  onChange={() => handleChange(soal, option)}
-                />
-                {option}
-              </label>
-            ))}
-          </div>
-
-          {/* Tombol Clear untuk Soal Tertentu */}
-          <button onClick={() => clearAnswer(soal)} className="clear-answer-btn btn btn-secondary">
-            Clear My Answer
-          </button>
+    <div className="kuis-container">
+      {kuisAktif === null ? (
+        <div className="pilihan-kuis">
+          <h2>Pilih Kuis</h2>
+          {pertanyaanPerKuis.map((kuis, index) => (
+            <button
+              key={index}
+              onClick={() => mulaiKuis(index)}
+              className="pilihan-kuis-button"
+            >
+              {kuis.kuis}
+            </button>
+          ))}
         </div>
-      ))}
-
-      {/* Tombol Kirim Jawaban */}
-      <div className="quiz-submit">
-        <button onClick={handleSubmit} className="submit-btn btn btn-primary">
-          Kirim Jawaban
-        </button>
-      </div>
-
-      {/* Feedback */}
-      {feedback && (
-        <div className="quiz-feedback">
-          <h3>{feedback}</h3>
+      ) : isKuisSelesai ? (
+        <div className="hasil">
+          <h3>Skor Anda: {skor} / {pertanyaanPerKuis[kuisAktif].soal.length}</h3>
+          <button onClick={() => setKuisAktif(null)}>Kembali ke Pilihan Kuis</button>
+        </div>
+      ) : (
+        <div>
+          <h2>{pertanyaanPerKuis[kuisAktif].kuis}</h2>
+          <div className="soal">
+            <h3>{pertanyaanPerKuis[kuisAktif].soal[babAktif]?.soal}</h3>
+            <div className="timer">Waktu: {timer}s</div>
+            <div className="pilihan">
+              {pertanyaanPerKuis[kuisAktif].soal[babAktif]?.pilihan.map((pilihan, idx) => (
+                <button
+                  key={idx}
+                  onClick={() =>
+                    pilihJawaban(
+                      pertanyaanPerKuis[kuisAktif].soal[babAktif].id,
+                      pilihan
+                    )
+                  }
+                  className={`pilihan-button ${
+                    jawabanTerpilih[
+                      pertanyaanPerKuis[kuisAktif].soal[babAktif].id
+                    ] === pilihan
+                      ? "selected"
+                      : ""
+                  }`}
+                >
+                  {pilihan}
+                </button>
+              ))}
+            </div>
+          </div>
+          <button
+            className="submit-button"
+            onClick={lanjutKeSoalBerikutnya}
+          >
+            {babAktif === pertanyaanPerKuis[kuisAktif].soal.length - 1
+              ? "Selesai"
+              : "Lanjutkan"}
+          </button>
         </div>
       )}
     </div>
   );
-};
-
-// Function untuk menampilkan soal sesuai urutan
-const getQuestionText = (soal) => {
-  const questions = {
-    soal1: 'Apa yang dimaksud dengan inflasi?',
-    soal2: 'Apa yang dimaksud dengan permintaan (demand)?',
-    soal3: 'Apa yang dimaksud dengan penawaran (supply)?',
-    soal4: 'Apa yang dimaksud dengan PDB (Produk Domestik Bruto)?',
-    soal5: 'Apa yang dimaksud dengan sumber daya alam?',
-    soal6: 'Apa peran perbankan dalam perekonomian?',
-    soal7: 'Apa yang dimaksud dengan ekspor?',
-  };
-  return questions[soal];
 };
 
 export default Kuis;
