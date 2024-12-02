@@ -1,108 +1,124 @@
-/* Home.css */
-
-/* Background untuk seluruh halaman */
-body {
-  background-color: #f4f4f9; /* Ganti ungu dengan warna netral */
-  font-family: Arial, sans-serif;
+.img-container {
+  position: relative;
+  text-align: center;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed; /* Membuat sidebar selalu berada di kiri */
-  top: 0;
-  left: 0;
-  height: 100%; /* Memenuhi tinggi layar */
-  width: 250px; /* Lebar sidebar */
-  background-color: #2c3e50; /* Warna sidebar yang lebih profesional */
-  color: #ecf0f1; /* Teks warna terang */
-  padding-top: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-  z-index: 1000; /* Memastikan sidebar di atas konten lain */
+.img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
-.sidebar .sidebar-menu {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar .sidebar-menu li {
-  padding: 15px 20px;
-  border-bottom: 1px solid #34495e;
-}
-
-.sidebar .sidebar-menu li a {
-  color: #ecf0f1;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-}
-
-.sidebar .sidebar-menu li a:hover {
-  background-color: #16a085; /* Warna hijau saat hover */
-  border-radius: 4px;
-}
-
-/* Tombol Toggle */
-.sidebar .toggle-btn {
+/* Elemen Selamat Datang */
+.welcomeText {
   position: absolute;
-  top: 20px;
-  right: -20px;
-  background-color: #34495e;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+  background:transparent;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.welcomeTitle {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.welcomeSubtitle {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.searchInput {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.searchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196f3;
   color: white;
   border: none;
-  padding: 5px 10px;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
-/* Konten Utama */
-.main-content {
-  margin-left: 250px; /* Menyesuaikan margin untuk sidebar */
-  padding: 20px;
+.searchButton:hover {
+  background-color: #1769aa;
+  transform: scale(1.1);
 }
 
-/* Hero Section */
-.hero-section {
-  background-image: url("https://via.placeholder.com/1920x600"); /* Ganti dengan URL gambar ekonomi */
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+/* Bagian Fitur */
+.featuresSection {
+  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.hero-section h1 {
-  font-size: 3rem;
+.featuresTitle {
+  font-size: 28px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
   font-weight: bold;
 }
 
-.hero-section p {
-  font-size: 1.5rem;
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
 }
 
-/* Input Group */
-.input-group {
-  max-width: 400px;
-  margin: auto;
+.featureCard {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-.input-group input {
-  border-radius: 0.25rem 0 0 0.25rem;
-  border: 1px solid #16a085;
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.input-group button {
-  background-color: #16a085;
-  color: white;
-  border: 1px solid #16a085;
-  border-radius: 0 0.25rem 0.25rem 0;
-  transition: background-color 0.3s ease-in-out;
+.featureImage {
+  width: 100px; /* Ukuran gambar */
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Membuat gambar melingkar */
 }
 
-.input-group button:hover {
-  background-color: #1abc9c;
+.featureCard h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.featureCard p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
 }
