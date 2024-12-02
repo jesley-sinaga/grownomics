@@ -8,38 +8,6 @@
   left: 0;
   display: flex;
   flex-direction: column;
-<<<<<<< HEAD
-  justify-content: flex-start; /* Konten mulai dari atas */
-}
-
-.sidebar h2 {
-  text-align: center;
-  padding: 20px;
- 
-  color: white;
-  margin: 0;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  flex-grow: 1; /* Menyesuaikan tinggi dengan konten */
-}
-
-.sidebar ul li {
-  padding: 15px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-=======
->>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
   align-items: center;
   transition: width 0.3s ease-in-out;
 }
@@ -54,16 +22,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-<<<<<<< HEAD
-  margin-bottom: 2px;
-  width: 50px;
-}
-
-.logo {
-  width: 10px; /* Atur ukuran logo */
-  height: 20px;
-  margin-right: 10px;
-=======
   padding: 13px;
   transition: all 0.3s ease; /* Animasi transisi */
 }
@@ -141,5 +99,4 @@
 .sidebar.closed .sidebar-menu a {
   text-align: center;
   padding: 15px 0;
->>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
 }
