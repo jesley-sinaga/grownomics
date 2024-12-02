@@ -1,6 +1,7 @@
  .kuis-container {
   max-width: 700px;
   margin: 50px auto;
+  margin-left: 200px;
   padding: 20px;
   background-color: #f4e1d2; /* Coklat muda */
   border-radius: 12px; /* Lebih membulat */
@@ -111,4 +112,106 @@
   border-radius: 8px;
   padding: 5px;
   border: 1px solid #d3a15c;
+}
+.pilihan {
+  display: flex;
+  flex-wrap: wrap; /* Membungkus tombol jika terlalu banyak */
+  justify-content: center; /* Rata tengah */
+  gap: 10px; /* Jarak antar tombol */
+  margin-top: 15px; /* Spasi atas */
+}
+
+/* Tombol pilihan jawaban */
+.pilihan-button {
+  background-color: #d3a15c; /* Coklat muda */
+  color: white;
+  border: 2px solid #b78b47; /* Border tegas */
+  padding: 12px 20px; /* Ukuran tombol lebih besar */
+  border-radius: 8px; /* Membulat */
+  font-size: 18px; /* Ukuran font lebih besar */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk dimensi */
+}
+
+.pilihan-button:hover {
+  background-color: #b78b47; /* Warna lebih gelap saat hover */
+  transform: translateY(-3px); /* Tombol naik sedikit */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih jelas */
+}
+
+/* Pilihan yang dipilih */
+.pilihan-button.selected {
+  background-color: #8f6226; /* Warna pilihan aktif */
+  color: #fdf5e6; /* Teks lebih terang */
+  border: 2px solid #70491e; /* Border lebih gelap */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan */
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 768px) {
+  .pilihan {
+    flex-direction: column; /* Pilihan jadi vertikal */
+    gap: 8px; /* Jarak antar tombol lebih kecil */
+  }
+
+  .pilihan-button {
+    font-size: 16px; /* Ukuran font lebih kecil */
+    padding: 10px 15px; /* Padding lebih kecil */
+  }
+}
+.hasil {
+  text-align: center;
+  background-color: #f4e1d2; /* Coklat muda */
+  padding: 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+  border: 2px solid #d3a15c; /* Border tegas */
+}
+
+/* Judul dan Skor */
+.hasil h3 {
+  font-size: 28px; /* Ukuran besar */
+  color: #6a4e23; /* Coklat tua */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Tombol Kembali */
+.hasil button {
+  background-color: #4CAF50; /* Hijau */
+  color: white;
+  font-size: 18px; /* Ukuran font lebih besar */
+  font-weight: bold;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan untuk dimensi */
+}
+
+.hasil button:hover {
+  background-color: #45a049; /* Hijau lebih gelap */
+  transform: translateY(-3px); /* Tombol naik sedikit */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Bayangan lebih besar */
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .hasil {
+    padding: 15px;
+    max-width: 90%; /* Lebar otomatis menyesuaikan */
+  }
+
+  .hasil h3 {
+    font-size: 22px; /* Ukuran lebih kecil */
+  }
+
+  .hasil button {
+    font-size: 16px;
+    padding: 10px 20px; /* Padding lebih kecil */
+  }
 }
