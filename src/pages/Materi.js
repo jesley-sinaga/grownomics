@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Materi.css";
 
 const Materi = () => {
@@ -23,10 +24,10 @@ const Materi = () => {
       <p>Pilih bab untuk mempelajari lebih lanjut:</p>
       <div className="grid-container">
         {materiList.map((materi) => (
-          <div key={materi.id} className="card">
+          <Link key={materi.id} to={`/materi/${materi.id}`} className="card">
             <h2>{materi.title}</h2>
             <p>{materi.desc}</p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
