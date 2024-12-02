@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Sidebar.css";
-// Import gambar
-import logose from "./grow.jpg"; // Sesuaikan dengan path logo Anda
+import logose from "./grow.jpg"; // Pastikan path ini benar
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true); // State untuk mengatur buka/tutup sidebar
+  const [isOpen, setIsOpen] = useState(true); // State untuk mengontrol sidebar
 
   const toggleSidebar = () => {
-    setIsOpen(!isOpen); // Mengubah state isOpen
+    setIsOpen(!isOpen); // Membalik nilai state isOpen
   };
 
   return (
-    <div className={`sidebar ${isOpen ? "open" : "closed"}`}> {/* Gunakan backtick dengan benar */}
+    <div className={`sidebar ${isOpen ? "open" : "closed"}`}>
       {/* Logo */}
       <div className="logo-container">
-        <img 
-          src={logose} 
-          alt="Logo" 
-          className={`logo ${isOpen ? "large" : "small"}`} 
+        <img
+          src={logose}
+          alt="Logo"
+          className={`logo ${isOpen ? "large" : "small"}`}
         />
       </div>
 
@@ -30,19 +29,34 @@ const Sidebar = () => {
       {/* Menu */}
       <ul className="sidebar-menu">
         <li>
-          <Link to="/home">{isOpen && "Home"}</Link> {/* Tampilkan label hanya jika sidebar terbuka */}
+          <Link to="/home">
+            <span className="menu-icon">🏠</span>
+            {isOpen && "Home"}
+          </Link>
         </li>
         <li>
-          <Link to="/materi">{isOpen && "Materi"}</Link>
+          <Link to="/materi">
+            <span className="menu-icon">📚</span>
+            {isOpen && "Materi"}
+          </Link>
         </li>
         <li>
-          <Link to="/latihan-soal">{isOpen && "Latihan Soal"}</Link>
+          <Link to="/latihan-soal">
+            <span className="menu-icon">📝</span>
+            {isOpen && "Latihan Soal"}
+          </Link>
         </li>
         <li>
-          <Link to="/grafik">{isOpen && "Grafik"}</Link>
+          <Link to="/grafik">
+            <span className="menu-icon">📊</span>
+            {isOpen && "Grafik"}
+          </Link>
         </li>
         <li>
-          <Link to="/kuis">{isOpen && "Kuis"}</Link>
+          <Link to="/kuis">
+            <span className="menu-icon">❓</span>
+            {isOpen && "Kuis"}
+          </Link>
         </li>
       </ul>
     </div>

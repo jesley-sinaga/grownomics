@@ -1,35 +1,36 @@
-
+/* Materi.css */
 .materi-container {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: center; 
-  padding: 84px;
+  align-items: center;
+  justify-content: flex-start; /* Supaya konten tidak di tengah layar */
+  padding: 84px 20px; /* Tambahkan padding di kiri/kanan */
   font-family: "Arial", sans-serif;
-  background: linear-gradient(#f4e1c1, #d1a36f);
-  min-height: 100vh; 
+  background: linear-gradient(#f4e1c1, #d1a36f); /* Warna gradasi tema ekonomi */
+  min-height: 100vh; /* Tinggi penuh viewport */
   color: #0b0505;
+  margin-left: 250px; /* Jarak dari sidebar */
 }
-
 
 .materi-title {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 .materi-subtitle {
   font-size: 1.2rem;
   margin-bottom: 30px;
+  text-align: center;
 }
-
 
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-  gap: 20px; 
-  width: 100%; 
-  max-width: 1200px; 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .card {
@@ -39,14 +40,13 @@
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-  
   text-align: left;
 }
 
 .card:hover {
   transform: translateY(-10px);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.25); 
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .card h2 {
@@ -59,27 +59,36 @@
   line-height: 1.5;
   color: #190606;
 }
+.materi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Grid responsif */
+  gap: 20px;
+  margin-top: 20px;
+}
 
+/* Responsif untuk perangkat kecil */
 @media (max-width: 1024px) {
   .card-grid {
-      grid-template-columns: repeat(2, 1fr); 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
   .card-grid {
-      grid-template-columns: repeat(1, 1fr); 
+    grid-template-columns: repeat(1, 1fr);
   }
+
   .materi-title {
-      font-size: 2rem;
+    font-size: 2rem;
   }
+
   .materi-subtitle {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .card {
-      width: 90%;
+    width: 90%;
   }
 }

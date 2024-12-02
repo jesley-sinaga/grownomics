@@ -1,256 +1,108 @@
-    .img-container {
-      position: relative;
-      text-align: center;
-      padding-left: 100px;
-      width: 141vh; 
-      height: 190vh;
+/* Home.css */
 
-    }
-    
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
-
-    .img {
-      width: 115%;
-      height: 40%;
-      border-radius: 8px;
-      animation: fadeIn 2s ease-in-out; /* Menambahkan efek fade-in */
-    }
-
-    @keyframes welcomeTextAnimation {
-      0% {
-        opacity: 0;
-        transform: translateY(0); /* Tidak mengubah posisi, hanya perubahan opacity */
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0); /* Tetap di posisi yang sama */
-      }
-    }
-
-    .welcomeText {
-      position: absolute;
-      top: 10%;
-      left: 60%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #ffffff;
-      background: transparent;
-      padding: 20px 40px;
-      border-radius: 10px;
-      animation: welcomeTextAnimation 1.5s ease-out;
-    }
-
-    .welcomeTitle {
-      font-size: 30px;
-      font-weight: bold;
-      margin-bottom: 14px;
-      color: #e8c399
-    }
-
-    .welcomeSubtitle {
-      font-size: 19px;
-      margin-bottom: 20px;
-    }
-
-    .searchContainer {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .searchInput {
-      padding: 10px;
-      font-size: 19px;
-      width: 290px;
-      border: none;
-      border-radius: 5px;
-      outline: none;
-    }
-
-    .searchButton {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #cfa06b;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .searchButton:hover {
-      background-color: #1769aa;
-      transform: scale(1.1);
-    }
-
-<<<<<<< HEAD
-  .searchInput {
-    width: 80%; /* Memperlebar input untuk layar kecil */
-  }
+/* Background untuk seluruh halaman */
+body {
+  background-color: #f4f4f9; /* Ganti ungu dengan warna netral */
+  font-family: Arial, sans-serif;
 }
-.featureGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center;
+
+/* Sidebar */
+.sidebar {
+  position: fixed; /* Membuat sidebar selalu berada di kiri */
+  top: 0;
+  left: 0;
+  height: 100%; /* Memenuhi tinggi layar */
+  width: 250px; /* Lebar sidebar */
+  background-color: #2c3e50; /* Warna sidebar yang lebih profesional */
+  color: #ecf0f1; /* Teks warna terang */
+  padding-top: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
+  z-index: 1000; /* Memastikan sidebar di atas konten lain */
+}
+
+.sidebar .sidebar-menu {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .sidebar-menu li {
+  padding: 15px 20px;
+  border-bottom: 1px solid #34495e;
+}
+
+.sidebar .sidebar-menu li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  display: flex;
   align-items: center;
 }
 
-/* Kotak Fitur */
-.featureBox {
-  background: linear-gradient(135deg, #f4e1c1, #d7b38a); /* Gradien warna */
-  color: #4e3629; /* Warna teks */
-  text-align: center;
-  padding: 30px 20px;
-  border-radius: 15px;
-  font-size: 18px;
-  font-weight: bold;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
-  transition: transform 0.3s, box-shadow 0.3s;
+.sidebar .sidebar-menu li a:hover {
+  background-color: #16a085; /* Warna hijau saat hover */
+  border-radius: 4px;
 }
 
-.featureBox h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 600;
+/* Tombol Toggle */
+.sidebar .toggle-btn {
+  position: absolute;
+  top: 20px;
+  right: -20px;
+  background-color: #34495e;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-.featureBox:hover {
-  transform: scale(1.1); /* Membesarkan ukuran kotak */
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3); /* Efek bayangan saat hover */
-}
-
-/* Responsif untuk Grid */
-@media (max-width: 768px) {
-  .featureGrid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-  .featureBox {
-    padding: 20px;
-  }
-}
-.contentTitle {
-  font-size: 24px;
-  font-weight: bold;
-  color: #4e3629; /* Warna teks */
-  margin-bottom: 20px;
-  text-align: center;
-  text-transform: uppercase; /* Huruf kapital */
-}
-.featureGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Kotak Fitur */
-.featureBox {
-  text-align: center;
+/* Konten Utama */
+.main-content {
+  margin-left: 250px; /* Menyesuaikan margin untuk sidebar */
   padding: 20px;
-  
-  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.featureBox img {
-  width: 100px; /* Ukuran gambar */
-  height: 100px; /* Ukuran gambar */
-  margin-bottom: 10px; /* Jarak antara gambar dan teks */
+/* Hero Section */
+.hero-section {
+  background-image: url("https://via.placeholder.com/1920x600"); /* Ganti dengan URL gambar ekonomi */
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
-.featureBox h3 {
-  margin: 0;
-  font-size: 18px;
-  font-weight: 600;
-  color: #4e3629;
-  text-transform: capitalize; /* Awal huruf kapital */
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
-.featureBox:hover {
-  transform: scale(1.0); /* Membesarkan elemen kotak */
+.hero-section p {
+  font-size: 1.5rem;
 }
-=======
-    /* Bagian Fitur */
-    .featuresSection {
-      background-color: rgb(255, 231, 189);
-      padding: 40px 20px;
-      margin: 30px auto;
-      width: 115%;
-    }
 
-    .featuresTitle {
-      font-size: 28px;
-      text-align: center;
-      color: #333;
-      margin-bottom: 40px;
-      font-weight: bold;
-    }
+/* Input Group */
+.input-group {
+  max-width: 400px;
+  margin: auto;
+}
 
-    @keyframes gridAnimation {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+.input-group input {
+  border-radius: 0.25rem 0 0 0.25rem;
+  border: 1px solid #16a085;
+}
 
-    .featuresGrid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-      justify-items: center;
-      width: 90%;
-      margin: 0 auto;
-      animation: gridAnimation 1s ease-out;
-    }
-    /* Sesuaikan ukuran fitur agar seimbang */
-    .featureCard {
-      background: #f5ca9a;
-      padding: 20px;
-      border-radius: 15px;
-      text-align: center;
-      transition: all 0.3s ease;
-      width: 90%; /* Sesuaikan ukuran kotak */
-      max-width: 300px; /* Batas lebar maksimum */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan ringan */
-    }
+.input-group button {
+  background-color: #16a085;
+  color: white;
+  border: 1px solid #16a085;
+  border-radius: 0 0.25rem 0.25rem 0;
+  transition: background-color 0.3s ease-in-out;
+}
 
-    .featureCard:hover {
-      transform: translateY(-5px); /* Sedikit efek hover */
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    }
-
-
-    .featureImage {
-      width: 100px; /* Ukuran gambar */
-      height: 100px;
-      object-fit: cover;
-      margin-bottom: 15px;
-      border-radius: 50%; /* Membuat gambar melingkar */
-    }
-
-    .featureCard h3 {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .featureCard p {
-      font-size: 16px;
-      color: #555;
-      line-height: 1.6;
-    }
->>>>>>> f35150daaf9ab76aee26ff416e8b557807bb2c3e
+.input-group button:hover {
+  background-color: #1abc9c;
+}
