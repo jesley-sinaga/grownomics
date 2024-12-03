@@ -89,7 +89,7 @@ function Registration() {
           <label htmlFor="confirmPassword">Konfirmasi Password</label>
         </div>
 
-        <button type="submit">Regiister</button>
+        <button type="submit">Register</button>
       </form>
 
       {/* Tambahkan link ke halaman login */}

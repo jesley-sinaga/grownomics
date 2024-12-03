@@ -44,14 +44,14 @@ const Home = () => {
           <div className="feature-card">
             <img src={fitur2} alt="Materi Mudah Diakses" className="feature-image" />
             <h3>Materi Mudah Diakses</h3>
-            <p>Dapatkan materi kapan saja dan di mana saja.</p>
+            <p>Dapatkan materi kapan saja dan di mana saja yang akurat.</p>
           </div>
 
           {/* Fitur 3 */}
           <div className="feature-card">
             <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image" />
             <h3>Pemantauan Kemajuan</h3>
-            <p>Lihat progres belajar Anda secara langsung.</p>
+            <p>Lihat progres belajar secara langsung.</p>
           </div>
         </div>
       </section>
