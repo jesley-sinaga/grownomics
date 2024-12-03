@@ -1,47 +1,104 @@
-.img-container {
-  position: relative;
-  text-align: center;
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
-.img {
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.hero-image {
+  flex: 1;
+  max-width: 90%;  /* Gambar akan lebih besar */
+  position: relative;
+}
+
+.background-img {
+  width: 120%;
   height: auto;
-  border-radius: 8px;
+  object-fit: cover;
+  
+  height: 450px; /* Ukuran gambar lebih besar */
 }
 
-/* Elemen Selamat Datang */
-.welcomeText {
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #ffffff;
-  background:transparent;
-  padding: 20px 40px;
+.hero-text {
+  flex: 1;
+  padding: 20px;
+  color: rgb(56, 56, 56);    
+  
+  margin-left: 80px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  height: 100%;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
 }
 
-.welcomeTitle {
-  font-size: 36px;
+@keyframes ketikan {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes kertasGoyang {
+  0% {
+    transform: rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: rotate(3deg) translateX(5px);
+  }
+  50% {
+    transform: rotate(0deg) translateX(0);
+  }
+  75% {
+    transform: rotate(-3deg) translateX(-5px);
+  }
+  100% {
+    transform: rotate(0deg) translateX(0);
+  }
+}
+
+/* Hero Section */
+.hero-title {
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 10px;
+  color: #ffffff;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  width: 0;
+  animation: ketikan 3s steps(30) 1s forwards, kertasGoyang 2s ease infinite; /* Animasi ketikan dan goyang */
 }
 
-.welcomeSubtitle {
-  font-size: 24px;
+.hero-description {
+  font-size: 16px;
   margin-bottom: 20px;
+  color: #363636;
 }
 
-.searchContainer {
+.search-container {
   display: flex;
   justify-content: center;
   gap: 10px;
+  padding-right: 400px;
 }
 
-.searchInput {
-  padding: 10px;
+.search-input {
+  padding: 12px;
   font-size: 16px;
   width: 250px;
   border: none;
@@ -49,8 +106,8 @@
   outline: none;
 }
 
-.searchButton {
-  padding: 10px 20px;
+.search-button {
+  padding: 12px 20px;
   font-size: 16px;
   background-color: #2196f3;
   color: white;
@@ -60,21 +117,22 @@
   transition: all 0.3s ease;
 }
 
-.searchButton:hover {
+.search-button:hover {
   background-color: #1769aa;
   transform: scale(1.1);
 }
 
-/* Bagian Fitur */
-.featuresSection {
-  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+/* Fitur Unggulan */
+.features-section {
+  background: #f9f9f9;
+  width: 100%;
+  max-width: 1200px;
   padding: 40px 20px;
   border-radius: 15px;
-  margin: 30px auto;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
-.featuresTitle {
+.features-title {
   font-size: 28px;
   text-align: center;
   color: #333;
@@ -82,14 +140,14 @@
   font-weight: bold;
 }
 
-.featuresGrid {
+.features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   justify-items: center;
 }
 
-.featureCard {
+.feature-card {
   background: white;
   padding: 20px;
   border-radius: 15px;
@@ -98,12 +156,12 @@
   transition: all 0.3s ease;
 }
 
-.featureCard:hover {
+.feature-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-.featureImage {
+.feature-image {
   width: 100px; /* Ukuran gambar */
   height: 100px;
   object-fit: cover;
@@ -111,13 +169,13 @@
   border-radius: 50%; /* Membuat gambar melingkar */
 }
 
-.featureCard h3 {
+.feature-card h3 {
   font-size: 20px;
   color: #333;
   margin-bottom: 10px;
 }
 
-.featureCard p {
+.feature-card p {
   font-size: 16px;
   color: #555;
   line-height: 1.6;

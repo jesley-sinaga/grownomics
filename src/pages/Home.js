@@ -7,47 +7,59 @@ import fitur3 from "./3.png"; // Gambar fitur 3
 
 const Home = () => {
   return (
-    <div className="img-container">
-      {/* Gambar Latar Belakang */}
-      <img src={img} alt="Background" className="img" />
-
-      {/* Elemen Selamat Datang */}
-      <div className="welcomeText">
-        <h1 className="welcomeTitle">Selamat Datang</h1>
-        <h2 className="welcomeSubtitle">di Website</h2>
-        <div className="searchContainer">
-          <input
-            type="text"
-            placeholder="Cari materi..."
-            className="searchInput"
-          />
-          <button className="searchButton">Cari</button>
+    <div className="home-container">
+      {/* Hero Section */}
+      <section className="hero-section">
+        <div className="hero-image">
+          <img src={img} alt="Background" className="background-img" />
         </div>
-      </div>
+        <div className="hero-text">
+          <h1 className="hero-title">Selamat datang di Website Ekonomi</h1>
+          
+          <p className="hero-description">
+          Kami menyediakan berbagai materi belajar yang mudah diakses dan interaktif 
+          untuk membantu proses belajar Anda. Di sini kaliam akan menemukan 
+          berbagai topik yang relevan dalam ekonomi, mulai dari konsep dasar 
+          hingga penerapan ekonomi dalam kehidupan sehari-hari. 
+          Website ini memberikan materi yang mudah dipahami oleh semua kalangan,
+          dengan metode pembelajaran yang menarik dan efektif. 
+          Bergabunglah dengan website ini untuk memperdalam pemahaman tentang 
+          ekonomi dan membuat keputusan yang lebih baik untuk masa depan kalian ya!
+          </p>
+          <div className="search-container">
+            <input
+              type="text"
+              placeholder="Cari materi..."
+              className="search-input"
+            />
+            <button className="search-button">Cari</button>
+          </div>
+        </div>
+      </section>
 
-      {/* Bagian Fitur */}
-      <section className="featuresSection">
-        <h2 className="featuresTitle">Fitur Unggulan Kami</h2>
-        <div className="featuresGrid">
+      {/* Fitur Unggulan */}
+      <section className="features-section">
+        <h2 className="features-title">Fitur Unggulan Kami</h2>
+        <div className="features-grid">
           {/* Fitur 1 */}
-          <div className="featureCard">
-            <img src={fitur1} alt="Pelajaran Interaktif" className="featureImage" />
+          <div className="feature-card">
+            <img src={fitur1} alt="Pelajaran Interaktif" className="feature-image" />
             <h3>Pelajaran Interaktif</h3>
             <p>Meningkatkan pemahaman melalui kuis dan simulasi.</p>
           </div>
 
           {/* Fitur 2 */}
-          <div className="featureCard">
-            <img src={fitur2} alt="Materi Mudah Diakses" className="featureImage" />
+          <div className="feature-card">
+            <img src={fitur2} alt="Materi Mudah Diakses" className="feature-image" />
             <h3>Materi Mudah Diakses</h3>
             <p>Dapatkan materi kapan saja dan di mana saja.</p>
           </div>
 
           {/* Fitur 3 */}
-          <div className="featureCard">
-            <img src={fitur3} alt="Pemantauan Kemajuan" className="featureImage" />
+          <div className="feature-card">
+            <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image"  />
             <h3>Pemantauan Kemajuan</h3>
-            <p>Lihat progres belajar Anda secara langsung.</p>
+            <p>Lihat progres belajar secara langsung dan tepat.</p>
           </div>
         </div>
       </section>
