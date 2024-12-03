@@ -1,10 +1,30 @@
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
+@keyframes ketikan {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
+/* Animasi Goyang */
+@keyframes goyang {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 @keyframes kertasGoyang {
   0% {
     transform: rotate(0deg) translateX(0);
@@ -42,6 +62,197 @@
   margin-bottom: 20px;
   color: #f1f1f1;
 }
+
+/* Hero Section */
+.hero-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ffffff;
+  display: inline-block;
+  overflow: hidden; /* Menyembunyikan teks yang belum diketik */
+  white-space: nowrap;
+  border-right: 3px solid #fff; /* Menambahkan efek kursor seperti mengetik */
+  width: 0;
+  animation: ketikan 3s steps(30) 1s forwards, goyang 1s infinite; /* Menambahkan animasi ketikan dan goyang */
+}
+
+.hero-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #f1f1f1;
+}
+
+/* Gambar */
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 50px;
+}
+
+.img {
+  width: 60%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Elemen Selamat Datang */
+.welcomeText {
+  position: absolute;
+  left: 35%;
+  top: 20%;
+  text-align: left;
+  color: #ffffff;
+  background: transparent;
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  animation: kertasGoyang 0.5s ease-in-out infinite;
+}
+
+/* Animasi ketikan untuk judul */
+.welcomeTitle {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #fff;
+  display: inline-block;
+  width: 0;
+  animation: ketikan 3s steps(30) 1s forwards;
+  animation-timing-function: steps(30, end);
+  margin-bottom: 10px;
+}
+
+.welcomeSubtitle {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.searchContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.searchInput {
+  padding: 10px;
+  font-size: 16px;
+  width: 250px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.searchButton {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.searchButton:hover {
+  background-color: #1769aa;
+  transform: scale(1.1);
+}
+
+/* Deskripsi panjang */
+.description {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: 20px;
+  line-height: 1.8;
+  font-weight: normal;
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Fitur */
+.featuresSection {
+  background: linear-gradient(135deg, #f9f9f9, #e3f2fd);
+  padding: 40px 20px;
+  border-radius: 15px;
+  margin: 30px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.featuresTitle {
+  font-size: 28px;
+  text-align: center;
+  color: #333;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.featureCard {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.featureImage {
+  width: 100px; /* Ukuran gambar */
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%; /* Membuat gambar melingkar */
+}
+
+.featureCard h3 {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.featureCard p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+/* Container utama untuk Home */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
 .hero-image {
   flex: 1;
   max-width: 60%;  /* Gambar akan lebih besar */
@@ -60,7 +271,7 @@
   flex: 1;
   padding: 20px;
   color: white;
-  background: rgba(0, 0, 0, 0.5);
+  
   margin-left: 30px;
   border-radius: 10px;
   height: 100%;

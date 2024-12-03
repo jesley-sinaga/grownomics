@@ -49,7 +49,7 @@ const Home = () => {
 
           {/* Fitur 3 */}
           <div className="feature-card">
-            <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image" className="feature-image" />
+            <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image" />
             <h3>Pemantauan Kemajuan</h3>
             <p>Lihat progres belajar Anda secara langsung.</p>
           </div>
