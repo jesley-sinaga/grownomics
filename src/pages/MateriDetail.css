@@ -14,24 +14,25 @@ body {
 /* Gaya untuk kontainer utama */
 .container {
   background: #fff;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 800px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  margin: 10px auto;
+  max-width: 700px; /* Perkecil lebar maksimum */
+  width: 90%; /* Pastikan responsif dengan layar kecil */
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container:hover {
   transform: scale(1.02);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
 }
 
 /* Gaya untuk judul */
 h1, h2 {
   text-align: center;
-  padding: 15px;
-  margin-bottom: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
   border-radius: 8px;
   background: linear-gradient(90deg, #d1c194, #2474b5);
   color: #fff;
@@ -40,20 +41,20 @@ h1, h2 {
 
 /* Gaya untuk paragraf */
 p {
-  line-height: 1.8;
-  margin-bottom: 20px;
-  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  font-size: 0.95rem; /* Sedikit lebih kecil untuk estetika */
 }
 
 /* Gaya untuk daftar */
 ul {
   list-style: disc;
-  padding-left: 25px;
+  padding-left: 20px;
 }
 
 li {
   margin-bottom: 10px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   transition: color 0.3s ease;
 }
 
@@ -63,7 +64,7 @@ li:hover {
 
 /* Gaya untuk tautan */
 a {
-  color: #d799ff;
+  color: #2474b5;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
@@ -75,17 +76,27 @@ a:hover {
   transform: scale(1.1);
 }
 
+.materi-detail-container {
+  width: 87%; /* Sesuaikan lebar kontainer */
+  max-width: 7000px; /* Tetapkan lebar maksimum */
+  margin: 20px auto; /* Pusatkan kontainer */
+  padding: 50px; /* Berikan ruang dalam */
+  height: auto; /* Biarkan tinggi menyesuaikan isi */
+  background-color: #fff; /* Warna latar belakang */
+  border-radius: 80px; /* Sudut melengkung */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan kontainer */
+  overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+  transition: transform 0.3s ease;
+}
+
+.materi-detail-container:hover {
+  transform: scale(1.02); /* Interaktivitas saat dihover */
+}
+
 /* Responsivitas untuk layar kecil */
 @media (max-width: 768px) {
-  .container {
-    padding: 20px;
-  }
-
-  h1, h2 {
-    font-size: 1.5rem;
-  }
-
-  p, li {
-    font-size: 0.9rem;
+  .materi-detail-container {
+    width: 90%; /* Sesuaikan lebar pada layar kecil */
+    padding: 15px; /* Kurangi padding untuk ruang lebih kecil */
   }
 }
