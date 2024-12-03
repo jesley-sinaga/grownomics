@@ -14,17 +14,9 @@ const Home = () => {
           <img src={img} alt="Background" className="background-img" />
         </div>
         <div className="hero-text">
-          <h1 className="hero-title">Selamat datang di Website Ekonomi</h1>
-          
+          <h1 className="hero-title">Selamat datang di Website Kami</h1>
           <p className="hero-description">
-          Kami menyediakan berbagai materi belajar yang mudah diakses dan interaktif 
-          untuk membantu proses belajar Anda. Di sini kaliam akan menemukan 
-          berbagai topik yang relevan dalam ekonomi, mulai dari konsep dasar 
-          hingga penerapan ekonomi dalam kehidupan sehari-hari. 
-          Website ini memberikan materi yang mudah dipahami oleh semua kalangan,
-          dengan metode pembelajaran yang menarik dan efektif. 
-          Bergabunglah dengan website ini untuk memperdalam pemahaman tentang 
-          ekonomi dan membuat keputusan yang lebih baik untuk masa depan kalian ya!
+            Kami menyediakan berbagai materi belajar yang mudah diakses dan interaktif untuk membantu proses belajar Anda.
           </p>
           <div className="search-container">
             <input
@@ -57,9 +49,9 @@ const Home = () => {
 
           {/* Fitur 3 */}
           <div className="feature-card">
-            <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image"  />
+            <img src={fitur3} alt="Pemantauan Kemajuan" className="feature-image" className="feature-image" />
             <h3>Pemantauan Kemajuan</h3>
-            <p>Lihat progres belajar secara langsung dan tepat.</p>
+            <p>Lihat progres belajar Anda secara langsung.</p>
           </div>
         </div>
       </section>

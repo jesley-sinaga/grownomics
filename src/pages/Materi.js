@@ -1,8 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "./Materi.css";
 
 const Materi = () => {
+  const navigate = useNavigate();
+  
+  // State untuk mengatur tampilan dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const materiList = [
     { id: 1, title: "Bab 1: Pengantar Ekonomi", desc: "Memahami konsep dasar ekonomi." },
     { id: 2, title: "Bab 2: Kebutuhan dan Kelangkaan", desc: "Pelajari bagaimana kelangkaan memengaruhi kebutuhan manusia." },
@@ -18,17 +23,48 @@ const Materi = () => {
     { id: 12, title: "Bab 12: Kebijakan Ekonomi", desc: "Mengenal kebijakan ekonomi pemerintah." },
   ];
 
+  // Fungsi untuk menampilkan/menyembunyikan dropdown
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
-    <div className="materi-container">
-      <h1>Materi Ekonomi</h1>
-      <p>Pilih bab untuk mempelajari lebih lanjut:</p>
-      <div className="grid-container">
-        {materiList.map((materi) => (
-          <Link key={materi.id} to={`/materi/${materi.id}`} className="card">
-            <h2>{materi.title}</h2>
-            <p>{materi.desc}</p>
-          </Link>
-        ))}
+    <div className="materi-wrapper">
+      {/* Sidebar dengan Dropdown */}
+      <div className="sidebar">
+        <h2 className="sidebar-title">Materi Ekonomi</h2>
+        <div className="dropdown">
+          <button className="dropdown-btn" onClick={toggleDropdown}>
+            {isDropdownOpen ? "Sembunyikan Materi" : "Tampilkan Materi"}
+          </button>
+          {isDropdownOpen && (
+            <ul className="dropdown-list">
+              {materiList.map((materi) => (
+                <li
+                  key={materi.id}
+                  className="dropdown-item"
+                  onClick={() => navigate(`/materi/${materi.id}`)}
+                >
+                  {materi.title}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
+
+      {/* Kontainer Grid untuk Tampilan Utama */}
+      <div className="materi-container">
+        <h1>Materi Ekonomi</h1>
+        <p>Pilih bab untuk mempelajari lebih lanjut:</p>
+        <div className="grid-container">
+          {materiList.map((materi) => (
+            <Link key={materi.id} to={`/materi/${materi.id}`} className="card">
+              <h2>{materi.title}</h2>
+              <p>{materi.desc}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );
