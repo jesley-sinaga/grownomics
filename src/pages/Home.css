@@ -1,23 +1,23 @@
-/* Home.css */
-
 /* Background untuk seluruh halaman */
 body {
-  background-color: #f4f4f9; /* Ganti ungu dengan warna netral */
-  font-family: Arial, sans-serif;
+  background-color: #f4f4f9; /* Warna netral untuk latar */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Sidebar */
 .sidebar {
-  position: fixed; /* Membuat sidebar selalu berada di kiri */
+  position: fixed; /* Tetap berada di sisi kiri layar */
   top: 0;
   left: 0;
   height: 100%; /* Memenuhi tinggi layar */
   width: 250px; /* Lebar sidebar */
-  background-color: #2c3e50; /* Warna sidebar yang lebih profesional */
+  background-color: #2c3e50; /* Warna biru tua yang profesional */
   color: #ecf0f1; /* Teks warna terang */
   padding-top: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Efek bayangan */
-  z-index: 1000; /* Memastikan sidebar di atas konten lain */
+  z-index: 1000;
 }
 
 .sidebar .sidebar-menu {
@@ -33,12 +33,11 @@ body {
 .sidebar .sidebar-menu li a {
   color: #ecf0f1;
   text-decoration: none;
-  display: flex;
-  align-items: center;
+  display: block;
 }
 
 .sidebar .sidebar-menu li a:hover {
-  background-color: #16a085; /* Warna hijau saat hover */
+  background-color: #16a085; /* Hijau cerah saat hover */
   border-radius: 4px;
 }
 
@@ -58,13 +57,13 @@ body {
 
 /* Konten Utama */
 .main-content {
-  margin-left: 250px; /* Menyesuaikan margin untuk sidebar */
+  margin-left: 250px; /* Memberi ruang untuk sidebar */
   padding: 20px;
 }
 
 /* Hero Section */
 .hero-section {
-  background-image: url("https://via.placeholder.com/1920x600"); /* Ganti dengan URL gambar ekonomi */
+  background-image: url("https://via.placeholder.com/1920x600"); /* URL dapat disesuaikan */
   background-size: cover;
   background-position: center;
   height: 400px;
@@ -105,4 +104,82 @@ body {
 
 .input-group button:hover {
   background-color: #1abc9c;
+}
+
+/* Kartu Topik Pembelajaran */
+.card {
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+  font-weight: bold;
+  color: #34495e;
+}
+
+.card-text {
+  color: #7f8c8d;
+}
+
+/* Kutipan Inspirasi */
+.blockquote {
+  font-style: italic;
+  background-color: #f4f4f9;
+  padding: 15px;
+  border-left: 5px solid #16a085;
+  margin: 20px 0;
+}
+
+.blockquote-footer {
+  color: #95a5a6;
+  font-size: 0.875rem;
+}
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  padding: 10px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* Media Queries untuk Responsivitas */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .sidebar .sidebar-menu li {
+    text-align: center;
+  }
+
+  .hero-section {
+    height: 300px;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section p {
+    font-size: 1.2rem;
+  }
+
+  .input-group {
+    width: 100%;
+  }
 }

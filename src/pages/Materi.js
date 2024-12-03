@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Materi.css";
 
 const Materi = () => {
   const navigate = useNavigate();
+
+  // State untuk mengatur tampilan dropdown
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const babList = [
     { id: 1, title: "Bab 1: Pengantar Ekonomi", description: "Memahami konsep dasar ekonomi." },
@@ -20,21 +23,31 @@ const Materi = () => {
     { id: 12, title: "Bab 12: Globalisasi Ekonomi", description: "Pahami dampak globalisasi terhadap ekonomi dunia." },
   ];
 
+  // Fungsi untuk menampilkan/menyembunyikan dropdown
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   return (
-    <div className="materi-container">
-      <h1 className="materi-title">Materi Ekonomi</h1>
-      <p className="materi-subtitle">Pilih bab untuk mempelajari lebih lanjut:</p>
-      <div className="card-grid">
-        {babList.map((bab) => (
-          <div
-            key={bab.id}
-            className="card"
-            onClick={() => navigate(`/materi/${bab.id}`)}
-          >
-            <h2>{bab.title}</h2>
-            <p>{bab.description}</p>
-          </div>
-        ))}
+    <div className="sidebar">
+      <h2 className="sidebar-title">Materi Ekonomi</h2>
+      <div className="dropdown">
+        <button className="dropdown-btn" onClick={toggleDropdown}>
+          {isDropdownOpen ? "Sembunyikan Materi" : "Tampilkan Materi"}
+        </button>
+        {isDropdownOpen && (
+          <ul className="dropdown-list">
+            {babList.map((bab) => (
+              <li
+                key={bab.id}
+                className="dropdown-item"
+                onClick={() => navigate(`/materi/${bab.id}`)}
+              >
+                {bab.title}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );
