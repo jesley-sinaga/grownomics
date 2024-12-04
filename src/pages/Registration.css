@@ -1,106 +1,123 @@
-.form-container {
-  max-width: 900px;
-  width: 320px;
-  margin: auto;
-  padding: 20px;
-  background: linear-gradient(#f4e1c1, #d1a36f);
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+/* Reset margin dan padding */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #e2dee6, #efecf5); /* Latar belakang gradasi */
+}
+
+/* Pusatkan konten secara vertikal dan horizontal */
+.registration-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 49px;
+  height: 100vh;
 }
 
-/* Heading Style */
-.form-container h2 {
+/* Kartu registrasi */
+.registration-card {
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.8); /* Latar belakang kartu dengan transparansi */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+  backdrop-filter: blur(5px);
+}
+
+/* Efek hover pada kartu */
+.registration-card:hover {
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+}
+
+/* Gaya header registrasi */
+.registration-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333333;
   text-align: center;
-  font-size: 40px;
-  color: #e8c399;
-  margin-bottom: 20px;
 }
 
-/* Floating Label Container */
-.floating-label {
-  position: relative;
-  margin-bottom: 22px;
-  width: 100%;
+/* Gaya logo */
+.registration-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.floating-label input {
-  width: 100%;
-  padding: 10px 10px 10px 5px;
-  border: 1px solid #6b532e;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+/* Input formulir */
+.registration-label {
+  font-size: 1rem;
+  margin-bottom: 8px;
 }
 
-.floating-label input:focus {
-  border-color: #71562d;
-  box-shadow: 0 0 5px rgba(166, 225, 241, 0.7);
-}
-
-.floating-label label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 14px;
-  color: #755c32;
-  background: #f4e1c1; /* Warna background untuk menyesuaikan */
-  padding: 0 5px;
-  transition: 0.2s ease all;
-  pointer-events: none;
-}
-
-/* Saat input aktif atau terisi */
-.floating-label input:focus + label,
-.floating-label input:not(:placeholder-shown) + label {
-  top: -10px; /* Naik ke atas input */
-  left: 5px;
-  font-size: 12px;
-  color: #71562d; /* Warna label saat fokus */
-}
-
-/* Button Style */
-.form-container button {
-  width: 100%;
+.registration-input {
+  font-size: 1rem;
   padding: 10px;
-  background-color: #a08051;
-  color: white;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  font-size: 1em;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Fokus pada input */
+.registration-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
+}
+
+/* Tombol register */
+.registration-btn {
+  background-color: #4285f4;
+  border: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: #fff;
   cursor: pointer;
-  margin-top: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
-.form-container button:hover {
-  background-color: #d1a052;
+/* Hover pada tombol register */
+.registration-btn:hover {
+  background-color: #357ae8;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
 }
 
-/* Logo */
-.logo {
-  width: 80px;
-  height: 80px;
-  margin-bottom: 20px;
-}
-
-/* Link Style */
-.login-link {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 14px;
-}
-
-.login-link a {
-  color: #007bff;
+/* Link login */
+.registration-link {
+  color: #4285f4;
   text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
-.login-link a:hover {
+/* Hover pada link */
+.registration-link:hover {
+  color: #357ae8;
   text-decoration: underline;
+}
+
+/* Responsivitas untuk layar kecil */
+@media (max-width: 576px) {
+  .registration-card {
+    padding: 20px;
+  }
+
+  .registration-title {
+    font-size: 1.2rem;
+  }
+
+  .registration-btn {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
 }

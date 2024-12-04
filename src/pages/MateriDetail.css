@@ -8,7 +8,8 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* Mengubah untuk memberikan ruang di bagian atas */
+  padding-top: 50px; /* Memberikan ruang di bagian atas untuk menurunkan konten */
 }
 
 /* Gaya untuk kontainer utama */
@@ -21,6 +22,7 @@ body {
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 40px; /* Menambahkan jarak atas */
 }
 
 .container:hover {
@@ -76,27 +78,25 @@ a:hover {
   transform: scale(1.1);
 }
 
+
 .materi-detail-container {
-  width: 87%; /* Sesuaikan lebar kontainer */
-  max-width: 7000px; /* Tetapkan lebar maksimum */
-  margin: 20px auto; /* Pusatkan kontainer */
+  width: 100%; /* Sesuaikan lebar kontainer */
+  max-width: 1262px; /* Tetapkan lebar maksimum */
+  margin: 1px auto; /* Pusatkan kontainer */
   padding: 50px; /* Berikan ruang dalam */
   height: auto; /* Biarkan tinggi menyesuaikan isi */
   background-color: #fff; /* Warna latar belakang */
-  border-radius: 80px; /* Sudut melengkung */
+  border-radius: 20px; /* Sudut melengkung */
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan kontainer */
   overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
-  transition: transform 0.3s ease;
+  transform: translateX(10%); /* Geser kontainer ke kanan sebanyak 10% */
+  margin-top: 10px; /* Mengurangi jarak atas untuk membuat kontainer lebih ke atas */
 }
 
-.materi-detail-container:hover {
-  transform: scale(1.02); /* Interaktivitas saat dihover */
-}
-
-/* Responsivitas untuk layar kecil */
 @media (max-width: 768px) {
   .materi-detail-container {
-    width: 90%; /* Sesuaikan lebar pada layar kecil */
-    padding: 15px; /* Kurangi padding untuk ruang lebih kecil */
+    width: 90%;
+    padding: 15px;
+    transform: translateX(0); /* Reset pada layar kecil untuk menjaga keselarasan */
   }
 }
