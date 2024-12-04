@@ -1,82 +1,91 @@
-/* Warna dasar coklat muda */
-
 .latihan-container {
   font-family: Arial, sans-serif;
-  margin: 20px;
-  padding: 20px;
-  border: 2px solid #8B4513; /* Warna coklat tua */
-  border-radius: 10px;
-  background: #F5DEB3; /* Warna coklat muda */
- 
+  padding: 10px;
+  background-color: #f5f5f5; /* Latar belakang halaman */
+  max-width: 800px; /* Menentukan lebar maksimal untuk konten */
+  margin: 0 auto; /* Untuk menengahkan konten */
 }
 
 .title {
   text-align: center;
-  font-size: 24px;
-  color: #8B4513;
-  margin-bottom: 20px;
-  font-weight: bold;
+  font-size: 18px; /* Ukuran font lebih kecil */
+  margin-bottom: 15px;
+  color: #8b4513; /* Warna coklat muda */
 }
 
 .bab-navigation {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 10px;
-  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 15px;
 }
 
 .bab-button {
-  background: #D2B48C; /* Warna coklat krem */
+  padding: 6px 12px; /* Lebih kecil padding */
+  border: 1px solid #d2b48c; /* Border yang lebih tipis */
+  border-radius: 3px; /* Border radius lebih kecil */
+  background-color: #d2b48c; /* Coklat muda */
   color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
   cursor: pointer;
-  font-weight: bold;
-  text-align: center;
-  transition: background 0.3s ease;
-  font-size: 14px;
+  font-size: 12px; /* Ukuran font lebih kecil */
+  transition: 0.3s;
 }
 
-.bab-button.active, .bab-button:hover {
-  background: #8B4513; /* Warna coklat tua */
+.bab-button.active {
+  background-color: #8b4513; /* Coklat lebih gelap untuk aktif */
 }
-
 
 .soal-container {
-  margin-top: 20px;
+  text-align: left;
+}
+
+.soal-item {
+  margin-bottom: 15px; /* Lebih kecil margin */
+}
+
+.jawaban-item {
+  margin: 3px 0;
+  padding: 8px 15px; /* Lebih kecil padding */
+  border-radius: 3px; /* Border radius lebih kecil */
+  background-color: #f5deb3; /* Coklat muda */
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 12px; /* Ukuran font lebih kecil */
+}
+
+.jawaban-item:hover {
+  background-color: #d2b48c; /* Coklat lebih gelap saat hover */
+}
+
+.jawaban-item.selected {
+  background-color: #deb887; /* Warna lebih gelap ketika dipilih */
+}
+
+.score-container {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.submit-button,
+.reset-button {
+  padding: 8px 15px; /* Lebih kecil padding */
+  background-color: #8b4513; /* Coklat */
+  color: white;
+  border: 1px solid #8b4513; /* Border tipis */
+  border-radius: 3px; /* Border radius lebih kecil */
+  cursor: pointer;
+  font-size: 12px; /* Ukuran font lebih kecil */
+  transition: 0.3s;
+}
+
+.submit-button:hover,
+.reset-button:hover {
+  background-color: #a0522d; /* Warna lebih gelap saat hover */
 }
 
 .select-prompt {
   text-align: center;
-  color: #8B4513;
-  font-size: 18px;
-}
-
-.soal-item {
-  background: #FFFFFF; /* Putih untuk kontras */
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.soal-item h3 {
-  margin-bottom: 10px;
-  color: #8B4513;
-}
-
-.jawaban-item {
-  list-style: none;
-  padding: 8px 12px;
-  margin: 5px 0;
-  background: #F5DEB3; /* Warna coklat muda */
-  border-radius: 3px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.jawaban-item:hover {
-  background: #D2B48C; /* Warna coklat krem */
-  color: #FFFFFF;
+  font-size: 14px; /* Ukuran font sedikit lebih kecil */
+  color: #8b4513; /* Coklat muda */
 }
