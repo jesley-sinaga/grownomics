@@ -42,11 +42,11 @@ function Registration() {
   };
 
   return (
-    <div className="registration-container d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="registration-card card shadow-lg p-4 rounded-3" style={{ maxWidth: "400px", width: "100%" }}>
+    <div className="registration-container">
+      <div className="registration-card">
         <div className="text-center">
-          <img src={logo} alt="Logo" className="registration-logo mb-3" style={{ width: "50px", height: "50px" }} />
-          <h3 className="registration-title mb-4">Registrasi</h3>
+          <img src={logo} alt="Logo" className="registration-logo" />
+          <h3 className="registration-title">Registrasi</h3>
         </div>
         <form onSubmit={handleSubmit}>
           {/* Input Email */}
@@ -91,13 +91,13 @@ function Registration() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-100 registration-btn">Register</button>
+          <button type="submit" className="btn btn-primary registration-btn">Register</button>
         </form>
 
         {/* Link ke halaman login */}
         <div className="text-center mt-3">
           <p className="mb-0">
-            Sudah punya akun? <Link to="/login" className="text-decoration-none registration-link">Klik Login</Link>
+            Sudah punya akun? <Link to="/login" className="registration-link">Klik Login</Link>
           </p>
         </div>
       </div>
