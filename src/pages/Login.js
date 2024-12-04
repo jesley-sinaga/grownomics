@@ -7,6 +7,7 @@ import logo from "./grow.jpg"; // Pastikan path file logo benar
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState(""); // State untuk email
   const [password, setPassword] = useState(""); // State untuk password
+  const [error, setError] = useState(""); // State untuk error
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -14,7 +15,7 @@ const Login = ({ setIsLoggedIn }) => {
 
     // Validasi jika email atau password kosong
     if (!email || !password) {
-      alert("Email dan password tidak boleh kosong.");
+      setError("Email dan password tidak boleh kosong.");
       return;
     }
 
@@ -31,7 +32,7 @@ const Login = ({ setIsLoggedIn }) => {
       alert("Login berhasil! Mengarahkan ke halaman Home.");
       navigate("/home"); // Navigasi ke halaman Home
     } else {
-      alert("Email atau password salah. Silakan coba lagi.");
+      setError("Email atau password salah. Silakan coba lagi.");
     }
   };
 
@@ -66,11 +67,14 @@ const Login = ({ setIsLoggedIn }) => {
             placeholder=" " // Tambahkan placeholder kosong
             required
           />
-          <label htmlFor="password">Password</label> {/* Perbaikan ejaan "Pssword" */}
+          <label htmlFor="password">Password</label>
         </div>
 
+        {/* Menampilkan pesan error */}
+        {error && <p className="error-message">{error}</p>}
+
         <button type="submit" className="login-button">
-          Login {/* Perbaikan ejaan "Lgin" */}
+          Login
         </button>
       </form>
 
