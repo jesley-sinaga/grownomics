@@ -34,6 +34,21 @@ const Kuis = () => {
         { id: 10, soal: " Di Indonesia, koperasi merupakan organisasi ekonomi yang berwatak...", pilihan: ["a. Kapitalis", "b. Sosial", "c. Agresif", "d. Produktif", "e. Ekonomis"], jawabanBenar: "b. Sosial" },
       ],
     },
+    {
+      kuis: "Kuis 3",
+      soal: [
+        { id: 1, soal: "Penghitungan upah yang didasarkan pada jumlah barang yang dihasilkan disebut?", pilihan: ["a. upah menurut waktu", "b. upah borongan", "c. upah bonus", "d. upah mitra usaha", "e. upah menurut satuan hasil"], jawabanBenar: "b. upah borongann" },
+        { id: 2, soal: "Di bawah ini yang bukan termasuk angkatan kerja adalah ...", pilihan: ["a. pekerja penuh", "b. setengah menganggur", "c. pengangguran", "d. pekerja yang bekerja paruh waktu", "e. pelajar"], jawabanBenar: "e. pelajar" },
+        { id: 3, soal: "Pencetus teori upah besi adalah...", pilihan: ["a. Adam Smith", "b.  Ferdinand Lassale", "c. David Ricardo", "d. J. S. Mill", "e.  Malthus"], jawabanBenar: "b. Ferdinand Lassale" },
+        { id: 4, soal: "Salah satu pendekatan dalam penghitungan pendapatan nasional adalah....", pilihan: ["a. pendekatan penerimaan", "b. pendekatan ekonomi", "c. pendekatan industri", "d. pendekatan kualitatif", "e. pendekatan kuantitatif"], jawabanBenar: "a. pendekatan penerimaann" },
+        { id: 5, soal: "Pendapatan perkapita suatu negara dihitung dengan membagi pendapatan nasional negara tersebut dengan....", pilihan: ["a. Produk Domestik Bruto", "b. Produk Nasional Bruto", "c. Jumlah penduduk", "d. Luas wilayah", "e. Jumlah pengeluaran"], jawabanBenar: "c. Jumlah penduduk" },
+        { id: 6, soal: "Di bawah ini yang termasuk tokoh ekonomi klasik adalah ...", pilihan: ["a.  Robert Solow", "b. Adam Smith", "c. Karl Bucher", "d.  W. W. Rostow", "e. Samuelson"], jawabanBenar: "b. Adam Smith" },
+        { id: 7, soal: "Salah satu masalah pembangunan di negara sedang berkembang adalah ...", pilihan: ["a. lapangan kerja berlimpah", "b. kekurangan angkatan kerja", "c. banyaknya pengangguran", "d. banyaknya sarjana", "e. tidak berhasilnya program KB"], jawabanBenar: "c. banyaknya pengangguran" },
+        { id: 8, soal: "Contoh dampak negatif pembangunan ekonomi adalah ...", pilihan: ["a. makin banyaknya fasilitas umum", "b. terbukanya kesempatan kerja", "c. terjadi perubahan struktur ekonomi dari agraris ke industri", "d. kesejahteraan meningkat", "e. meningkatnya urbanisasi"], jawabanBenar: "e. meningkatnya urbanisasi" },
+        { id: 9, soal: "Salah satu tokoh perintis koperasi di Indonesia bernama Raden Aria Wiria Atmaja yang berasal dari...", pilihan: ["a. Semarang", "b. Jakarta", "c. Bandung", "d.  Purwokerto", "e. Yogyakarta"], jawabanBenar: "d. Purwokerton" },
+        { id: 10, soal: " Di Indonesia, koperasi merupakan organisasi ekonomi yang berwatak...", pilihan: ["a. Kapitalis", "b. Sosial", "c. Agresif", "d. Produktif", "e. Ekonomis"], jawabanBenar: "b. Sosial" },
+      ],
+    },
   ];
 
   const [jawabanTerpilih, setJawabanTerpilih] = useState({});
