@@ -1,118 +1,122 @@
+/* Login.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
 .login-container {
-  width: 350px;
-  margin: auto;
-  padding: 30px;
-  border-radius: 15px;
-  background: linear-gradient(#f4e1c1, #d1a36f);
+  width: 100%;
+  max-width: 450px;
+  margin: 50px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-header {
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-bottom: 30px;
 }
 
-/* Gaya heading */
-.login-container h2 {
-  color: #e8c399;
-  margin-bottom: 20px;
-  font-size: 40px;
-  font-weight: 600;
+h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+  color: #333;
 }
 
-/* Logo styling */
 .login-logo {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
   margin-bottom: 20px;
 }
 
-/* Styling untuk container input dengan floating label */
-.floating-label {
+.input-container {
   position: relative;
   margin-bottom: 20px;
 }
 
-.floating-label input {
-  width: 100%;
-  padding: 10px 10px 10px 5px;
-  border: 1px solid #6b532e;
-  border-radius: 5px;
-  font-size: 14px;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.floating-label input:focus {
-  border-color: #71562d;
-  box-shadow: 0 0 5px rgba(166, 225, 241, 0.7);
-}
-
-.floating-label label {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 14px;
-  color: #755c32;
-  background: #f4e1c1; /* Warna background untuk menyesuaikan */
-  padding: 0 5px;
-  transition: 0.2s ease all;
-  pointer-events: none;
-}
-
-/* Saat input aktif atau terisi */
-.floating-label input:focus + label,
-.floating-label input:not(:placeholder-shown) + label {
-  top: -10px; /* Naik ke atas input */
-  left: 5px;
-  font-size: 12px;
-  color: #71562d; /* Warna label saat fokus */
-}
-
-/* Gaya tombol login */
-.login-button {
+.input-container input {
   width: 100%;
   padding: 12px;
-  margin-top: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.input-container input:focus {
+  border-color: #4CAF50;
+}
+
+.input-container label {
+  position: absolute;
+  top: -10px;
+  left: 12px;
+  font-size: 12px;
+  color: #4CAF50;
+  background-color: white;
+  padding: 0 5px;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
   border: none;
   border-radius: 5px;
-  font-size: 14px;
   cursor: pointer;
-  font-weight: bold;
-  background-color: #a08051;
-  color: #fff;
   transition: background-color 0.3s ease;
 }
 
-.login-button:hover {
-  background-color: #d1a052;
+button:hover {
+  background-color: #45a049;
 }
 
-/* Gaya untuk link register */
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.register-container {
+  text-align: center;
+}
+
 .register-container p {
-  color: #755c32;
-  font-size: 12px;
+  font-size: 14px;
+  color: #333;
 }
 
-.register-container p:hover {
-  color: #a08051;
-  transform: scale(1.1);
-  transition: color 0.3s ease, transform 0.3s ease;
+.register-container a {
+  color: #4CAF50;
+  text-decoration: none;
 }
 
-/* Responsivitas untuk layar kecil */
-@media (max-width: 480px) {
+.register-container a:hover {
+  text-decoration: underline;
+}
+
+/* Responsiveness for small screens */
+@media (max-width: 500px) {
   .login-container {
-    width: 90%;
     padding: 20px;
+    width: 90%;
   }
 
-  .login-container h2 {
-    font-size: 36px;
+  .login-logo {
+    width: 60px;
+    height: 60px;
   }
 
-  .login-button {
-    font-size: 14px;
+  h2 {
+    font-size: 24px;
   }
 }
