@@ -1,159 +1,186 @@
-/* Reset margin dan padding */
+/* Global styling */
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #d0cfe8, #f0f4f8); /* Gradasi latar belakang yang lebih lembut */
-  overflow: hidden; /* Menghindari scroll */
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #f8ede3, #d8eaff); /* Soft cream to light blue gradient */
+  color: #333333;
 }
 
-/* Pusatkan konten secara vertikal dan horizontal */
+/* Main container */
 .registration-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: 100vh;
-}
-
-/* Kartu registrasi dengan efek bayangan dan transparansi */
-.registration-card {
-  max-width: 400px;
-  width: 100%;
   padding: 40px;
-  border-radius: 15px;
-  background: rgba(255, 255, 255, 0.9); /* Latar belakang kartu lebih terang */
-  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease-in-out;
-  backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
-  border: 1px solid #e0e0e0; /* Border lembut */
-}
-
-/* Efek hover pada kartu */
-.registration-card:hover {
-  box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
-}
-
-/* Gaya header registrasi */
-.registration-title {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  color: #333333;
-  font-weight: 600;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-/* Gaya logo */
-.registration-logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-bottom: 15px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #4285f4; /* Border logo */
-  padding: 5px;
   box-sizing: border-box;
-  transition: transform 0.3s ease-in-out;
 }
 
-/* Efek hover pada logo */
-.registration-logo:hover {
-  transform: rotate(360deg);
+/* Left section - Content */
+.registration-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
-/* Input formulir */
-.registration-label {
-  font-size: 1rem;
-  margin-bottom: 10px;
-  color: #666666;
-}
-
-.registration-input {
-  font-size: 1rem;
-  padding: 12px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  transition: all 0.3s ease-in-out;
-  background-color: #f9f9f9;
+.registration-left h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #4a90e2;
   margin-bottom: 15px;
 }
 
-/* Fokus pada input */
-.registration-input:focus {
-  border-color: #4285f4;
-  box-shadow: 0 0 8px rgba(66, 133, 244, 0.6);
-  outline: none;
-  background-color: #fff;
-}
-
-/* Tombol register */
-.registration-btn {
-  background-color: #4285f4;
-  border: none;
+.registration-left p {
   font-size: 1.1rem;
-  padding: 12px 18px;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  color: #333333;
+  line-height: 1.6;
+  max-width: 400px;
+  margin-bottom: 30px;
+}
+
+.registration-left img {
   width: 100%;
-  text-transform: uppercase;
+  max-width: 400px;
+  margin-top: 20px;
+  object-fit: contain;
+}
+
+/* Right section - Form */
+.registration-right {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  max-width: 500px;
+  margin: auto;
+}
+
+.registration-right h3 {
+  text-align: center;
+  font-size: 2rem;
+  color: #6a3d1a; /* Brownish color */
   font-weight: bold;
-  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
-/* Hover pada tombol register */
+/* Form container */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Input labels */
+.registration-label {
+  font-size: 0.9rem;
+  color: #555555;
+}
+
+/* Input fields */
+.registration-input {
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.registration-input:focus {
+  outline: none;
+  border-color: #4a90e2;
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styling */
+.registration-btn {
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  background: linear-gradient(90deg, #6a3d1a, #4a90e2); /* Brown to blue gradient */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
 .registration-btn:hover {
-  background-color: #357ae8;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-  transform: scale(1.05);
+  background: linear-gradient(90deg, #4a90e2, #6a3d1a); /* Reverse gradient */
+  transform: scale(1.03);
 }
 
-/* Link login */
+/* Login link */
 .registration-link {
-  color: #4285f4;
-  text-decoration: none;
-  transition: color 0.3s ease-in-out;
-  font-weight: 500;
   display: block;
   text-align: center;
   margin-top: 15px;
+  font-size: 0.9rem;
+  color: #4a90e2;
+  text-decoration: none;
 }
 
-/* Hover pada link */
 .registration-link:hover {
-  color: #357ae8;
   text-decoration: underline;
 }
 
-/* Responsivitas untuk layar kecil */
-@media (max-width: 576px) {
-  .registration-card {
+/* Decorative shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  filter: blur(40px);
+  animation: float 8s infinite ease-in-out;
+}
+
+.shape1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 10%;
+}
+
+.shape2 {
+  width: 400px;
+  height: 400px;
+  bottom: 15%;
+  right: 10%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .registration-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .registration-left {
+    padding: 0;
+  }
+
+  .registration-left img {
+    margin: 20px auto;
+  }
+
+  .registration-right {
+    margin-top: 30px;
     padding: 20px;
-  }
-
-  .registration-title {
-    font-size: 1.5rem;
-  }
-
-  .registration-logo {
-    width: 50px;
-    height: 50px;
-  }
-
-  .registration-btn {
-    font-size: 1rem;
-    padding: 10px 12px;
-  }
-
-  .registration-input {
-    padding: 10px;
   }
 }

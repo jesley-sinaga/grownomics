@@ -98,7 +98,7 @@ const Kuis = () => {
       const interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
       return () => clearInterval(interval);
     } else if (timer === 0) {
-      lanjutKeSoalBerikutnya();
+    
     }
   }, [timer, isKuisSelesai]);
 

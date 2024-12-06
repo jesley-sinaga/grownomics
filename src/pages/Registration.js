@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom"; // Import useNavigate dan Link
-import "bootstrap/dist/css/bootstrap.min.css"; // Import Bootstrap
-import "./Registration.css"; // Assuming your CSS styles are here
+import "./Registration.css"; // Importing the CSS
 import logo from './grow.jpg'; // Logo image
 
 function Registration() {
@@ -43,64 +42,79 @@ function Registration() {
 
   return (
     <div className="registration-container">
-      <div className="registration-card">
-        <div className="text-center">
-          <img src={logo} alt="Logo" className="registration-logo" />
-          <h3 className="registration-title">Registrasi</h3>
-        </div>
-        <form onSubmit={handleSubmit}>
-          {/* Input Email */}
+      {/* Left Section */}
+      <div className="registration-left">
+        <h1>Gabung dengan Komunitas Ekonomi</h1>
+        <p>
+          Pahami konsep ekonomi kelas 11 dengan lebih mendalam. Temukan materi, soal, 
+          dan komunitas belajar yang mendukung kesuksesan Anda.
+        </p>
+        <img src={logo} alt="Logo" />
+      </div>
+
+      {/* Right Section */}
+      <div className="registration-right">
+        <h3>Form Registrasi</h3>
+        <form onSubmit={handleSubmit} className="registration-form">
+          {/* Email Field */}
           <div className="mb-3">
-            <label htmlFor="email" className="form-label registration-label">Email</label>
+            <label className="registration-label" htmlFor="email">Email</label>
             <input
               type="email"
               name="email"
               id="email"
-              className="form-control registration-input"
+              className="registration-input"
               value={formData.email}
               onChange={handleChange}
               required
+              placeholder="Masukkan email Anda"
             />
           </div>
 
-          {/* Input Password */}
+          {/* Password Field */}
           <div className="mb-3">
-            <label htmlFor="password" className="form-label registration-label">Password</label>
+            <label className="registration-label" htmlFor="password">Password</label>
             <input
               type="password"
               name="password"
               id="password"
-              className="form-control registration-input"
+              className="registration-input"
               value={formData.password}
               onChange={handleChange}
               required
+              placeholder="Masukkan password Anda"
             />
           </div>
 
-          {/* Input Confirm Password */}
+          {/* Confirm Password Field */}
           <div className="mb-3">
-            <label htmlFor="confirmPassword" className="form-label registration-label">Konfirmasi Password</label>
+            <label className="registration-label" htmlFor="confirmPassword">Konfirmasi Password</label>
             <input
               type="password"
               name="confirmPassword"
               id="confirmPassword"
-              className="form-control registration-input"
+              className="registration-input"
               value={formData.confirmPassword}
               onChange={handleChange}
               required
+              placeholder="Konfirmasi password Anda"
             />
           </div>
 
-          <button type="submit" className="btn btn-primary registration-btn">Register</button>
+          <button type="submit" className="registration-btn">Daftar</button>
         </form>
 
-        {/* Link ke halaman login */}
+        {/* Login link */}
         <div className="text-center mt-3">
           <p className="mb-0">
             Sudah punya akun? <Link to="/login" className="registration-link">Klik Login</Link>
           </p>
         </div>
       </div>
+
+      {/* Decorative Shapes */}
+      <div className="shape shape1"></div>
+      <div className="shape shape2"></div>
     </div>
   );
 }
