@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./Login.css";
-import logo from "./grow.jpg"; // Pastikan path file logo benar
+
 
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
@@ -34,17 +34,17 @@ const Login = ({ setIsLoggedIn }) => {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div className="card shadow-lg p-4 rounded-3" style={{ maxWidth: "400px", width: "100%" }}>
-        <div className="text-center">
-          <img src={logo} alt="Logo" className="mb-3" style={{ width: "50px", height: "50px" }} />
-          <h3 className="mb-4">Login</h3>
-        </div>
+    <div className="login-container">
+      <div className="login-left">
+        <h1>Grownomics</h1>
+        <p>A Platform for Learning Economics (Grade 11)</p>
+      </div>
+      <div className="login-right">
+
+        <h3 className="login-title">Log In</h3>
         <form onSubmit={handleSubmit}>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
+          <div className="input-group">
+            <label htmlFor="email" className="form-label">Email</label>
             <input
               type="email"
               id="email"
@@ -54,10 +54,8 @@ const Login = ({ setIsLoggedIn }) => {
               required
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
+          <div className="input-group">
+            <label htmlFor="password" className="form-label">Password</label>
             <input
               type="password"
               id="password"
@@ -67,13 +65,11 @@ const Login = ({ setIsLoggedIn }) => {
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary w-100">
-            Login
-          </button>
+          <button type="submit" className="btn-login">Log In</button>
         </form>
-        <div className="text-center mt-3">
+        <div className="text-center">
           <p className="mb-0">
-            Don't have an account? <Link to="/register" className="text-decoration-none">Register here</Link>
+            Don't have an account? <Link to="/register" className="link-text">Register here</Link>
           </p>
         </div>
       </div>

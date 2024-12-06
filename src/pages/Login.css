@@ -1,125 +1,111 @@
-/* Reset margin dan padding */
+/* Body and background styling */
 body, html {
   margin: 0;
   padding: 0;
-  width: 100%;
   height: 100%;
-  font-family: "Arial", sans-serif;
-  background: linear-gradient(135deg, #e2dee6, #efecf5); /* Latar belakang gradasi */
+  background-color: #f7f7f7; /* Light grey background */
+  font-family: Arial, sans-serif;
 }
 
-/* Pusatkan konten secara vertikal dan horizontal */
-.d-flex {
+/* Login container */
+.login-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  height: 100vh; /* Pastikan konten terpusat */
+  height: 100vh;
+  padding: 0 20px;
 }
 
-/* Kartu login */
-.card {
-  max-width: 400px; /* Lebar maksimal kartu */
-  width: 100%; /* Lebar penuh untuk layar kecil */
+/* Left side styling */
+.login-left {
+  flex: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.login-left h1 {
+  font-size: 3rem;
+  color: #4a90e2; /* Blue color like Facebook */
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+/* Right side styling (Login form) */
+.login-right {
+  flex: 0.5;
+  background-color: white;
   padding: 30px;
-  border-radius: 10px; /* Sudut melengkung */
-  background: rgba(255, 255, 255, 0.8); /* Latar belakang kartu dengan transparansi */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Bayangan */
-  transition: all 0.3s ease-in-out; /* Animasi untuk interaksi */
-  backdrop-filter: blur(5px); /* Efek blur transparan */
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
 }
 
-/* Efek hover pada kartu */
-.card:hover {
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
-  transform: scale(1.02); /* Sedikit perbesar */
-}
-
-/* Gaya header login */
-h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333333; /* Warna teks header */
-  text-align: center;
-}
-
-/* Gaya logo */
-img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%; /* Membuat logo berbentuk lingkaran */
-  margin-bottom: 15px;
+.login-right .logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto 20px;
 }
 
-/* Input formulir */
-.form-control {
-  font-size: 1rem;
-  padding: 10px;
-  border: 1px solid #ccc; /* Warna border input */
-  border-radius: 5px; /* Sudut input melengkung */
-  transition: all 0.2s ease-in-out; /* Animasi untuk interaksi */
-}
-
-/* Fokus pada input */
-.form-control:focus {
-  border-color: #007bff; /* Warna border saat fokus */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-  outline: none;
-}
-
-/* Tombol login */
-.btn-primary {
-  background-color: #4285f4; /* Warna biru seperti Google */
-  border: none;
-  font-size: 1rem;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: #fff; /* Warna teks tombol */
-  cursor: pointer;
-  transition: all 0.3s ease-in-out; /* Animasi interaksi */
-}
-
-/* Hover pada tombol login */
-.btn-primary:hover {
-  background-color: #357ae8; /* Warna biru lebih gelap */
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  transform: scale(1.02);
-}
-
-/* Link register */
-.text-center p {
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: #555555; /* Warna teks */
+.login-right .login-title {
   text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
 }
 
-.text-decoration-none {
-  color: #4285f4; /* Warna biru link */
+/* Input fields styling */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.input-group label {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Button styling */
+.btn-login {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a90e2; /* Blue color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-login:hover {
+  background-color: #3578e5; /* Darker blue on hover */
+}
+
+/* Link text styling */
+.link-text {
+  color: #4a90e2;
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
 }
 
-/* Hover pada link */
-.text-decoration-none:hover {
-  color: #357ae8; /* Warna biru lebih gelap */
+.link-text:hover {
   text-decoration: underline;
 }
 
-/* Responsivitas untuk layar kecil */
-@media (max-width: 576px) {
-  .card {
-    padding: 20px; /* Kurangi padding pada layar kecil */
-  }
-
-  h3 {
-    font-size: 1.2rem; /* Perkecil ukuran teks header */
-  }
-
-  .btn-primary {
-    font-size: 0.9rem; /* Perkecil ukuran tombol */
-    padding: 8px 10px; /* Kurangi padding tombol */
-  }
+.text-center {
+  text-align: center;
 }
