@@ -8,21 +8,10 @@ import {
   Title,
   Tooltip,
   Legend,
-  LineController, // Pastikan LineController diimport
 } from "chart.js";
-import "./Grafik.css"; // Import file CSS
+import "./Grafik.css";
 
-// Daftarkan semua komponen yang diperlukan untuk Chart.js
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  LineController, // Pastikan LineController terdaftar
-  Title,
-  Tooltip,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Grafik = () => {
   const [dataKuis, setDataKuis] = useState([50]); // Nilai awal
@@ -33,33 +22,69 @@ const Grafik = () => {
 
   // Fungsi untuk menambahkan nilai baru ke grafik
   const tambahNilai = () => {
-    if (!nilaiBaru) return; // Cegah jika input kosong
-    setDataKuis([...dataKuis, parseInt(nilaiBaru)]); // Tambahkan nilai baru
-    setNilaiBaru(""); // Reset input
+    if (!nilaiBaru || parseInt(nilaiBaru) < 0 || parseInt(nilaiBaru) > 100) {
+      alert("Masukkan nilai antara 0–100.");
+      return;
+    }
+    setDataKuis([...dataKuis, parseInt(nilaiBaru)]);
+    setNilaiBaru("");
   };
 
   // Fungsi untuk menambahkan nama kuis baru
   const tambahKuis = () => {
-    if (!namaKuisBaru) return; // Cegah jika input kosong
-    setLabels([...labels, namaKuisBaru]); // Tambahkan nama kuis baru ke label
-    setDataKuis([...dataKuis, 0]); // Tambahkan nilai default (0) untuk kuis baru
-    setNamaKuisBaru(""); // Reset input
+    if (!namaKuisBaru || labels.includes(namaKuisBaru)) {
+      alert("Nama kuis sudah ada atau kosong.");
+      return;
+    }
+    setLabels([...labels, namaKuisBaru]);
+    setDataKuis([...dataKuis, 0]); // Nilai default untuk kuis baru
+    setNamaKuisBaru("");
   };
 
+  // Fungsi untuk menghapus data
+  const hapusData = (index) => {
+    const updatedLabels = labels.filter((_, i) => i !== index);
+    const updatedDataKuis = dataKuis.filter((_, i) => i !== index);
+    setLabels(updatedLabels);
+    setDataKuis(updatedDataKuis);
+  };
+
+  // Simpan dan ambil data dari local storage
   useEffect(() => {
-    // Konfigurasi grafik
+    const savedLabels = localStorage.getItem("labels");
+    const savedDataKuis = localStorage.getItem("dataKuis");
+
+    if (savedLabels && savedDataKuis) {
+      setLabels(JSON.parse(savedLabels));
+      setDataKuis(JSON.parse(savedDataKuis));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("labels", JSON.stringify(labels));
+    localStorage.setItem("dataKuis", JSON.stringify(dataKuis));
+  }, [labels, dataKuis]);
+
+  // Konfigurasi dan rendering grafik menggunakan Chart.js
+  useEffect(() => {
     const ctx = chartRef.current.getContext("2d");
     const chart = new ChartJS(ctx, {
-      type: "line", // Pastikan tipe chart sesuai dengan controller yang didaftarkan
+      type: "line",
       data: {
-        labels: labels, // Label pada sumbu x
+        labels: labels,
         datasets: [
           {
             label: "Nilai Kuis",
-            data: dataKuis, // Data nilai kuis
-            borderColor: "rgba(75, 192, 192, 1)", // Warna garis
-            backgroundColor: "rgba(75, 192, 192, 0.2)", // Warna area di bawah garis
-            tension: 0.4, // Membuat garis melengkung
+            data: dataKuis,
+            borderColor: dataKuis.map((nilai) =>
+              nilai > 70
+                ? "rgba(75, 192, 192, 1)" // Hijau
+                : nilai >= 50
+                ? "rgba(255, 206, 86, 1)" // Kuning
+                : "rgba(255, 99, 132, 1)" // Merah
+            ),
+            backgroundColor: "rgba(75, 192, 192, 0.2)",
+            tension: 0.4,
             borderWidth: 2,
           },
         ],
@@ -68,29 +93,26 @@ const Grafik = () => {
         responsive: true,
         plugins: {
           legend: {
-            display: false, // Sembunyikan label legend (opsional)
+            display: true,
           },
         },
         scales: {
           y: {
             beginAtZero: true,
-            max: 100, // Asumsikan nilai maksimal 100
+            max: 100,
           },
         },
       },
     });
 
-    // Bersihkan grafik saat komponen dihapus
     return () => chart.destroy();
   }, [labels, dataKuis]);
 
   return (
     <div className="grafik-container">
       <h2>Grafik Peningkatan Nilai</h2>
-      {/* Elemen canvas untuk menggambar grafik */}
       <canvas ref={chartRef}></canvas>
 
-      {/* Input untuk menambah nilai */}
       <div className="input-container">
         <input
           type="number"
@@ -101,7 +123,6 @@ const Grafik = () => {
         <button onClick={tambahNilai}>Tambah Nilai</button>
       </div>
 
-      {/* Input untuk menambah kuis baru */}
       <div className="input-container">
         <input
           type="text"
@@ -110,6 +131,30 @@ const Grafik = () => {
           onChange={(e) => setNamaKuisBaru(e.target.value)}
         />
         <button onClick={tambahKuis}>Tambah Kuis</button>
+      </div>
+
+      <div className="data-table">
+        <h3>Data Kuis</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Kuis</th>
+              <th>Nilai</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {labels.map((label, index) => (
+              <tr key={index}>
+                <td>{label}</td>
+                <td>{dataKuis[index]}</td>
+                <td>
+                  <button onClick={() => hapusData(index)}>Hapus</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

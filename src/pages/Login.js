@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./Login.css";
-
+import { useNavigate, Link } from "react-router-dom";
+import "./Login.css"; // Import CSS
 
 const Login = ({ setIsLoggedIn }) => {
   const [email, setEmail] = useState("");
@@ -18,6 +15,7 @@ const Login = ({ setIsLoggedIn }) => {
       return;
     }
 
+    // Ambil data user dari localStorage
     const storedUserData = JSON.parse(localStorage.getItem("userData"));
 
     if (
@@ -35,16 +33,20 @@ const Login = ({ setIsLoggedIn }) => {
 
   return (
     <div className="login-container">
+      {/* Bagian Kiri */}
       <div className="login-left">
         <h1>Grownomics</h1>
-        <p>A Platform for Learning Economics (Grade 11)</p>
+        <p>Platform Belajar Ekonomi untuk Kelas 11</p>
       </div>
-      <div className="login-right">
 
+      {/* Bagian Kanan */}
+      <div className="login-right">
         <h3 className="login-title">Log In</h3>
         <form onSubmit={handleSubmit}>
-          <div className="input-group">
-            <label htmlFor="email" className="form-label">Email</label>
+          <div className="mb-3">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
               type="email"
               id="email"
@@ -52,10 +54,13 @@ const Login = ({ setIsLoggedIn }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="Masukkan email Anda"
             />
           </div>
-          <div className="input-group">
-            <label htmlFor="password" className="form-label">Password</label>
+          <div className="mb-3">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
               id="password"
@@ -63,15 +68,19 @@ const Login = ({ setIsLoggedIn }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Masukkan password Anda"
             />
           </div>
-          <button type="submit" className="btn-login">Log In</button>
+          <button type="submit" className="btn-login">
+            Log In
+          </button>
         </form>
-        <div className="text-center">
-          <p className="mb-0">
-            Don't have an account? <Link to="/register" className="link-text">Register here</Link>
-          </p>
-        </div>
+        <p className="text-center mt-3">
+          Belum punya akun?{" "}
+          <Link to="/register" className="link-text">
+            Daftar di sini
+          </Link>
+        </p>
       </div>
     </div>
   );

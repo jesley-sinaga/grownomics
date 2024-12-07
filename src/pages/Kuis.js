@@ -49,6 +49,7 @@ const Kuis = () => {
         { id: 10, soal: " Di Indonesia, koperasi merupakan organisasi ekonomi yang berwatak...", pilihan: ["a. Kapitalis", "b. Sosial", "c. Agresif", "d. Produktif", "e. Ekonomis"], jawabanBenar: "b. Sosial" },
       ],
     },
+   
   ];
 
   const [jawabanTerpilih, setJawabanTerpilih] = useState({});
