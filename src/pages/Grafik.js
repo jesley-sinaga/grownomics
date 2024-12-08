@@ -8,10 +8,12 @@ import {
   Title,
   Tooltip,
   Legend,
+  LineController, // Tambahkan ini
 } from "chart.js";
 import "./Grafik.css";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+// Daftarkan LineController
+ChartJS.register(LineController, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 const Grafik = () => {
   const [dataKuis, setDataKuis] = useState([50]); // Nilai awal
@@ -22,7 +24,7 @@ const Grafik = () => {
 
   // Fungsi untuk menambahkan nilai baru ke grafik
   const tambahNilai = () => {
-    if (!nilaiBaru || parseInt(nilaiBaru) < 0 || parseInt(nilaiBaru) > 100) {
+    if (!nilaiBaru || isNaN(nilaiBaru) || parseInt(nilaiBaru) < 0 || parseInt(nilaiBaru) > 100) {
       alert("Masukkan nilai antara 0–100.");
       return;
     }
@@ -51,12 +53,16 @@ const Grafik = () => {
 
   // Simpan dan ambil data dari local storage
   useEffect(() => {
-    const savedLabels = localStorage.getItem("labels");
-    const savedDataKuis = localStorage.getItem("dataKuis");
+    try {
+      const savedLabels = localStorage.getItem("labels");
+      const savedDataKuis = localStorage.getItem("dataKuis");
 
-    if (savedLabels && savedDataKuis) {
-      setLabels(JSON.parse(savedLabels));
-      setDataKuis(JSON.parse(savedDataKuis));
+      if (savedLabels && savedDataKuis) {
+        setLabels(JSON.parse(savedLabels));
+        setDataKuis(JSON.parse(savedDataKuis));
+      }
+    } catch (error) {
+      console.error("Gagal mengambil data dari localStorage:", error);
     }
   }, []);
 
@@ -67,7 +73,10 @@ const Grafik = () => {
 
   // Konfigurasi dan rendering grafik menggunakan Chart.js
   useEffect(() => {
+    if (!chartRef.current) return;
+
     const ctx = chartRef.current.getContext("2d");
+
     const chart = new ChartJS(ctx, {
       type: "line",
       data: {

@@ -4,6 +4,7 @@
   background-color: #f5f5f5; /* Latar belakang halaman */
   max-width: 800px; /* Menentukan lebar maksimal untuk konten */
   margin: 0 auto; /* Untuk menengahkan konten */
+  padding-top: 600px;
 }
 
 .title {
